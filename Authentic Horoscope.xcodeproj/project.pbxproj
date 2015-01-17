@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		709D31741A6A399400892038 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31731A6A399400892038 /* main.m */; };
+		709D31771A6A399400892038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31761A6A399400892038 /* AppDelegate.m */; };
+		709D317A1A6A399400892038 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31791A6A399400892038 /* ViewController.m */; };
+		709D317D1A6A399400892038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 709D317B1A6A399400892038 /* Main.storyboard */; };
+		709D317F1A6A399400892038 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709D317E1A6A399400892038 /* Images.xcassets */; };
+		709D31821A6A399400892038 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709D31801A6A399400892038 /* LaunchScreen.xib */; };
+		709D318E1A6A399400892038 /* Authentic_HoroscopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		709D31881A6A399400892038 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 709D31661A6A399400892038 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 709D316D1A6A399400892038;
+			remoteInfo = "Authentic Horoscope";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		709D316E1A6A399400892038 /* Authentic Horoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authentic Horoscope.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		709D31721A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709D31731A6A399400892038 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		709D31751A6A399400892038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		709D31761A6A399400892038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		709D31781A6A399400892038 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		709D31791A6A399400892038 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		709D317C1A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		709D317E1A6A399400892038 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		709D31811A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authentic HoroscopeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		709D318C1A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authentic_HoroscopeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		709D316B1A6A399400892038 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709D31841A6A399400892038 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		709D31651A6A399400892038 = {
+			isa = PBXGroup;
+			children = (
+				709D31701A6A399400892038 /* Authentic Horoscope */,
+				709D318A1A6A399400892038 /* Authentic HoroscopeTests */,
+				709D316F1A6A399400892038 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		709D316F1A6A399400892038 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				709D316E1A6A399400892038 /* Authentic Horoscope.app */,
+				709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		709D31701A6A399400892038 /* Authentic Horoscope */ = {
+			isa = PBXGroup;
+			children = (
+				709D31751A6A399400892038 /* AppDelegate.h */,
+				709D31761A6A399400892038 /* AppDelegate.m */,
+				709D31781A6A399400892038 /* ViewController.h */,
+				709D31791A6A399400892038 /* ViewController.m */,
+				709D317B1A6A399400892038 /* Main.storyboard */,
+				709D317E1A6A399400892038 /* Images.xcassets */,
+				709D31801A6A399400892038 /* LaunchScreen.xib */,
+				709D31711A6A399400892038 /* Supporting Files */,
+			);
+			path = "Authentic Horoscope";
+			sourceTree = "<group>";
+		};
+		709D31711A6A399400892038 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				709D31721A6A399400892038 /* Info.plist */,
+				709D31731A6A399400892038 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		709D318A1A6A399400892038 /* Authentic HoroscopeTests */ = {
+			isa = PBXGroup;
+			children = (
+				709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */,
+				709D318B1A6A399400892038 /* Supporting Files */,
+			);
+			path = "Authentic HoroscopeTests";
+			sourceTree = "<group>";
+		};
+		709D318B1A6A399400892038 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				709D318C1A6A399400892038 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		709D316D1A6A399400892038 /* Authentic Horoscope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709D31911A6A399500892038 /* Build configuration list for PBXNativeTarget "Authentic Horoscope" */;
+			buildPhases = (
+				709D316A1A6A399400892038 /* Sources */,
+				709D316B1A6A399400892038 /* Frameworks */,
+				709D316C1A6A399400892038 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Authentic Horoscope";
+			productName = "Authentic Horoscope";
+			productReference = 709D316E1A6A399400892038 /* Authentic Horoscope.app */;
+			productType = "com.apple.product-type.application";
+		};
+		709D31861A6A399400892038 /* Authentic HoroscopeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709D31941A6A399500892038 /* Build configuration list for PBXNativeTarget "Authentic HoroscopeTests" */;
+			buildPhases = (
+				709D31831A6A399400892038 /* Sources */,
+				709D31841A6A399400892038 /* Frameworks */,
+				709D31851A6A399400892038 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				709D31891A6A399400892038 /* PBXTargetDependency */,
+			);
+			name = "Authentic HoroscopeTests";
+			productName = "Authentic HoroscopeTests";
+			productReference = 709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		709D31661A6A399400892038 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Max Davila";
+				TargetAttributes = {
+					709D316D1A6A399400892038 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					709D31861A6A399400892038 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 709D316D1A6A399400892038;
+					};
+				};
+			};
+			buildConfigurationList = 709D31691A6A399400892038 /* Build configuration list for PBXProject "Authentic Horoscope" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 709D31651A6A399400892038;
+			productRefGroup = 709D316F1A6A399400892038 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				709D316D1A6A399400892038 /* Authentic Horoscope */,
+				709D31861A6A399400892038 /* Authentic HoroscopeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		709D316C1A6A399400892038 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709D317D1A6A399400892038 /* Main.storyboard in Resources */,
+				709D31821A6A399400892038 /* LaunchScreen.xib in Resources */,
+				709D317F1A6A399400892038 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709D31851A6A399400892038 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		709D316A1A6A399400892038 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709D317A1A6A399400892038 /* ViewController.m in Sources */,
+				709D31771A6A399400892038 /* AppDelegate.m in Sources */,
+				709D31741A6A399400892038 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709D31831A6A399400892038 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709D318E1A6A399400892038 /* Authentic_HoroscopeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		709D31891A6A399400892038 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 709D316D1A6A399400892038 /* Authentic Horoscope */;
+			targetProxy = 709D31881A6A399400892038 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		709D317B1A6A399400892038 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				709D317C1A6A399400892038 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		709D31801A6A399400892038 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				709D31811A6A399400892038 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		709D318F1A6A399400892038 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		709D31901A6A399400892038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		709D31921A6A399500892038 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		709D31931A6A399500892038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		709D31951A6A399500892038 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Authentic HoroscopeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authentic Horoscope.app/Authentic Horoscope";
+			};
+			name = Debug;
+		};
+		709D31961A6A399500892038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Authentic HoroscopeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authentic Horoscope.app/Authentic Horoscope";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		709D31691A6A399400892038 /* Build configuration list for PBXProject "Authentic Horoscope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709D318F1A6A399400892038 /* Debug */,
+				709D31901A6A399400892038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		709D31911A6A399500892038 /* Build configuration list for PBXNativeTarget "Authentic Horoscope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709D31921A6A399500892038 /* Debug */,
+				709D31931A6A399500892038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		709D31941A6A399500892038 /* Build configuration list for PBXNativeTarget "Authentic HoroscopeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709D31951A6A399500892038 /* Debug */,
+				709D31961A6A399500892038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 709D31661A6A399400892038 /* Project object */;
+}
