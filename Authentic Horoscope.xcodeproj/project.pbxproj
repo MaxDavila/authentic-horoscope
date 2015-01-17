@@ -14,6 +14,7 @@
 		709D317F1A6A399400892038 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709D317E1A6A399400892038 /* Images.xcassets */; };
 		709D31821A6A399400892038 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709D31801A6A399400892038 /* LaunchScreen.xib */; };
 		709D318E1A6A399400892038 /* Authentic_HoroscopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */; };
+		709D319C1A6ABDA800892038 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D319B1A6ABDA800892038 /* PageContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +34,15 @@
 		709D31751A6A399400892038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		709D31761A6A399400892038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		709D31781A6A399400892038 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		709D31791A6A399400892038 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		709D31791A6A399400892038 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		709D317C1A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		709D317E1A6A399400892038 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		709D31811A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authentic HoroscopeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		709D318C1A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authentic_HoroscopeTests.m; sourceTree = "<group>"; };
+		709D319A1A6ABDA800892038 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
+		709D319B1A6ABDA800892038 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				709D31761A6A399400892038 /* AppDelegate.m */,
 				709D31781A6A399400892038 /* ViewController.h */,
 				709D31791A6A399400892038 /* ViewController.m */,
+				709D319A1A6ABDA800892038 /* PageContentViewController.h */,
+				709D319B1A6ABDA800892038 /* PageContentViewController.m */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D31801A6A399400892038 /* LaunchScreen.xib */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				709D317A1A6A399400892038 /* ViewController.m in Sources */,
+				709D319C1A6ABDA800892038 /* PageContentViewController.m in Sources */,
 				709D31771A6A399400892038 /* AppDelegate.m in Sources */,
 				709D31741A6A399400892038 /* main.m in Sources */,
 			);
