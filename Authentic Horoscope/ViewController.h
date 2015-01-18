@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "PageContentViewController.h"
+#import "Horoscope.h"
+
 
 @interface ViewController : UIViewController <NSXMLParserDelegate,UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
-@property (strong, nonatomic) NSString *horoscope;
+@property (strong, nonatomic) NSString *todayHoroscope;
+//@property (strong, nonatomic) NSString *horoscope;
 @property (strong, nonatomic) NSString *birthdate;
 
 @property NSUInteger pageCount;
@@ -21,7 +24,8 @@
 
 
 @property (nonatomic, strong) NSXMLParser *xmlParser;
-@property (nonatomic, strong) NSMutableArray *resultArray;
+@property (nonatomic, strong) NSMutableDictionary *dataStorage;
+
 @property (nonatomic, strong) NSMutableDictionary *tempDataStorage;
 @property (nonatomic, strong) NSMutableString *foundValue;
 @property (nonatomic, strong) NSString *currentElement;

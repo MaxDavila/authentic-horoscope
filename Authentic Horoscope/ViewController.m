@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageCount = 3;
-    self.horoscope = @"YOOOOO";
     NSURL *url = [NSURL URLWithString:@"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=1/16/2015"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     
@@ -30,13 +29,9 @@
     // Start parsing.
     [self.xmlParser parse];
     
-    [self.resultArray removeObjectAtIndex:0];
-    [self.resultArray removeObjectAtIndex:(NSUInteger)[self.resultArray count] -1];
-    NSLog(@"string: %@", self.resultArray);
-    
-
-    
-
+    // Instantiate horoscope
+    Horoscope *horoscope = [Horoscope initWithData:self.dataStorage];
+    self.todayHoroscope = [horoscope getSnippetForSign:@"Cancer"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -54,16 +49,18 @@
 #pragma mark - xml parser
 
 -(void)parserDidStartDocument:(NSXMLParser *)parser{
-    // Initialize the result array.
-    self.resultArray = [[NSMutableArray alloc] init];
+    // Initialize the result dict.
+    self.dataStorage = [[NSMutableDictionary alloc] init];
+
 }
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser{
-    NSLog(@"Result array %@", self.resultArray);
+//    NSLog(@"Result dict %@", self.dataStorage);
+//    NSLog(@"Virgo: %@", [self.dataStorage objectForKey:@"Virgo"]);
 }
 
 -(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
-    NSLog(@"%@", [parseError localizedDescription]);
+    NSLog(@"Parse Error: %@", [parseError localizedDescription]);
 }
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
@@ -81,13 +78,22 @@
     
     // Add tempDatastorage to resultArray when the desired tag closing bracked has been reached
     if ([elementName isEqualToString:@"item"]) {
-        [self.resultArray addObject:[[NSDictionary alloc] initWithDictionary:self.tempDataStorage]];  }
+        NSString *title = [self.tempDataStorage objectForKey:@"title"];
+        
+        NSArray *array = [title componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+        title = [array objectAtIndex:0];
+
+        NSString *description = [self.tempDataStorage objectForKey:@"description"];
+        
+        [self.dataStorage setObject:description forKey:title];
+    }
     // Add title to tempDataStorage dict.
-    else if ([elementName isEqualToString:@"title"]){
+    else if ([elementName isEqualToString:@"title"]) {
         [self.tempDataStorage setObject:[NSString stringWithString:self.foundValue] forKey:@"title"];
     }
     // Add description to tempDataStorage dict.
-    else if ([elementName isEqualToString:@"description"]){
+    else if ([elementName isEqualToString:@"description"]) {
         [self.tempDataStorage setObject:[NSString stringWithString:self.foundValue] forKey:@"description"];
     }
     
@@ -141,7 +147,7 @@
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    pageContentViewController.horoscopeText = self.horoscope;
+    pageContentViewController.horoscopeText = self.todayHoroscope;
     pageContentViewController.pageIndex = index;
     
     return pageContentViewController;
