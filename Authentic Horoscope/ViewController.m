@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <AFNetworking/AFNetworking.h>
+
 
 @interface ViewController ()
 @end
@@ -16,42 +18,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageCount = 3;
-    //Setup url
-    NSURL *url = [NSURL URLWithString:@"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=1/16/2015"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
+    // Setup url
+    NSString *urlString = @"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=1/16/2015";
     
-    self.xmlParser = [[NSXMLParser alloc] initWithData:data];
-    self.xmlParser.delegate = self;
-    
-    // Initialize the mutable string that we'll use during parsing.
-    self.foundValue = [[NSMutableString alloc] init];
-    
-    // Start parsing.
-    [self.xmlParser parse];
-    
-    // Instantiate horoscope
-    NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
-    NSLog(@"Sign : %@", sign);
-    if (sign) {
-        Horoscope *horoscope = [Horoscope initWithData:self.dataStorage];
-        self.todayHoroscope = [horoscope getSnippetForSign:sign];
-    }
-    else {
-        self.todayHoroscope = @"Go set your sign!";
-    }
+    // Make async request
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPResponseSerializer * responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = responseSerializer;
 
-    
-    // Create page view controller
-    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
-    self.pageViewController.dataSource = self;
-    
-    PageContentViewController *startingViewController = [self viewControllerAtIndex:1];
-    NSArray *viewControllers = @[startingViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
-    [self addChildViewController:_pageViewController];
-    [self.view addSubview:_pageViewController.view];
-    [self.pageViewController didMoveToParentViewController:self];
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        self.xmlParser = [[NSXMLParser alloc] initWithData:responseObject];
+        self.xmlParser.delegate = self;
+        
+        // Initialize the mutable string that we'll use during parsing.
+        self.foundValue = [[NSMutableString alloc] init];
+        
+        // Start parsing.
+        [self.xmlParser parse];
+        
+        // Instantiate horoscope
+        NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
+        NSLog(@"Sign : %@", sign);
+        if (sign) {
+            Horoscope *horoscope = [Horoscope initWithData:self.dataStorage];
+            self.todayHoroscope = [horoscope getSnippetForSign:sign];
+        }
+        else {
+            self.todayHoroscope = @"Go set your sign!";
+        }
+        
+        // Create page view controller
+        self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+        self.pageViewController.dataSource = self;
+        
+        PageContentViewController *startingViewController = [self viewControllerAtIndex:1];
+        NSArray *viewControllers = @[startingViewController];
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        
+        [self addChildViewController:_pageViewController];
+        [self.view addSubview:_pageViewController.view];
+        [self.pageViewController didMoveToParentViewController:self];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 #pragma mark - xml parser
