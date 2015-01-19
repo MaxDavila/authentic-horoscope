@@ -15,7 +15,6 @@
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
 @property (strong, nonatomic) NSString *todayHoroscope;
-//@property (strong, nonatomic) NSString *horoscope;
 @property (strong, nonatomic) NSString *birthdate;
 
 @property NSUInteger pageCount;

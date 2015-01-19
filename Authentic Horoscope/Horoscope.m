@@ -20,9 +20,11 @@
         _data = data;
         _positiveWords = [NSArray arrayWithObjects:@"It's gonna be amazeballs",
                           @"Your day is gonna be fucking grrreat",
-                          @"Start are aligning, go kick some balls", nil];
+                          @"Stars are aligning, go kick some balls",
+                          @"You are fucking Beyoncé today", nil];
         _negativeWords = [NSArray arrayWithObjects:@"Don't play the lottery today",
                           @"Kicking donkey balls",
+                          @"Don't talk to anyone with a fucking fedora today or you'll regret it",
                           @"Don't bother going outside", nil];
     }
     return self;

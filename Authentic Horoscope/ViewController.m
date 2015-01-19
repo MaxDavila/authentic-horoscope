@@ -9,14 +9,14 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
 @end
 
-@implementation ViewController 
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageCount = 3;
+    //Setup url
     NSURL *url = [NSURL URLWithString:@"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=1/16/2015"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     
@@ -30,14 +30,22 @@
     [self.xmlParser parse];
     
     // Instantiate horoscope
-    Horoscope *horoscope = [Horoscope initWithData:self.dataStorage];
-    self.todayHoroscope = [horoscope getSnippetForSign:@"Cancer"];
+    NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
+    NSLog(@"Sign : %@", sign);
+    if (sign) {
+        Horoscope *horoscope = [Horoscope initWithData:self.dataStorage];
+        self.todayHoroscope = [horoscope getSnippetForSign:sign];
+    }
+    else {
+        self.todayHoroscope = @"Go set your sign!";
+    }
+
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
-    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:1];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
@@ -147,9 +155,20 @@
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    pageContentViewController.horoscopeText = self.todayHoroscope;
     pageContentViewController.pageIndex = index;
-    
+
+
+    if (index == 0) {
+        pageContentViewController.horoscopeText = @"";
+    }
+    else if (index == 1) {
+        pageContentViewController.hidePicker = YES;
+        pageContentViewController.horoscopeText = self.todayHoroscope;
+    }
+    else if (index == 2) {
+        pageContentViewController.hidePicker = YES;
+        pageContentViewController.horoscopeText = @"Camera view";
+    }
     return pageContentViewController;
 }
 @end

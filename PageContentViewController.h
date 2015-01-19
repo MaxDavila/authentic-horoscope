@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageContentViewController : UIViewController
 
+@interface PageContentViewController : UIViewController 
+
+@property (weak, nonatomic) IBOutlet UIPickerView *signPicker;
 @property (weak, nonatomic) IBOutlet UILabel *horoscopeLabel;
+
+@property (nonatomic, assign) BOOL hidePicker;
+
 @property NSUInteger pageIndex;
 @property NSString *horoscopeText;
+
 @end

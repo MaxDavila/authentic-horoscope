@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-685" y="360"/>
+            <point key="canvasLocation" x="-917" y="404"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="3aY-xW-QYd">
@@ -48,16 +48,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ihf-Kg-YMa">
+                                <rect key="frame" x="0.0" y="90" width="600" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="horoscopeLabel" destination="Xp5-kq-UTx" id="Zv8-72-Y03"/>
+                        <outlet property="signPicker" destination="Ihf-Kg-YMa" id="3I1-Id-eHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0r-ia-JpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117" y="531"/>
+            <point key="canvasLocation" x="117" y="533"/>
         </scene>
     </scenes>
 </document>
