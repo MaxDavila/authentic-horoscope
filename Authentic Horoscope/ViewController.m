@@ -156,17 +156,16 @@
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
     pageContentViewController.pageIndex = index;
-
+    pageContentViewController.hidePicker = YES;
 
     if (index == 0) {
         pageContentViewController.horoscopeText = @"";
+        pageContentViewController.hidePicker = NO;
     }
     else if (index == 1) {
-        pageContentViewController.hidePicker = YES;
         pageContentViewController.horoscopeText = self.todayHoroscope;
     }
     else if (index == 2) {
-        pageContentViewController.hidePicker = YES;
         pageContentViewController.horoscopeText = @"Camera view";
     }
     return pageContentViewController;
