@@ -7,12 +7,19 @@
 //
 
 #import "PageContentViewController.h"
+@import AVFoundation;
 
 @interface PageContentViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 @end
 
 @implementation PageContentViewController  {
     NSArray *_pickerData;
+    
+    AVCaptureSession *_captureSession;
+    AVCaptureDevice *_videoDevice;
+    AVCaptureDeviceInput *_videoInput;
+    AVCaptureVideoPreviewLayer *_previewLayer;
+    BOOL _running;
 }
 
 - (void)viewDidLoad {
@@ -36,12 +43,35 @@
     self.signPicker.dataSource = self;
     self.signPicker.delegate = self;
     self.signPicker.hidden = self.hidePicker;
-    NSLog(@"pagecontroller view %@", self.signPicker);
+    
+    self.previewView.hidden = YES;
+    [self setupCaptureSession];
+    _previewLayer.frame = _previewView.bounds;
+    [_previewView.layer addSublayer:_previewLayer];
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSLog(self.presentCamera ? @"yes" : @"no");
+    if (self.presentCamera) {
+        [self startRunning];
+
+        self.previewView.hidden = NO;
+
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+    }
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
     // Preload the picker with user settings.
     NSInteger row = [[[NSUserDefaults standardUserDefaults] objectForKey:@"row"] intValue];
     if ((row >= 0) && (row < [_pickerData count])) {
@@ -49,10 +79,50 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-//    [self._mainController viewDidLoad];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self stopRunning];
+}
+
+- (void)applicationWillEnterForeground:(NSNotification*)note {
+    [self startRunning];
+}
+- (void)applicationDidEnterBackground:(NSNotification*)note {
+    [self stopRunning];
+}
+
+# pragma mark - Camera methods
+- (void)setupCaptureSession {
+    if (_captureSession) return;
+
+    _videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    if (!_videoDevice) {
+        NSLog(@"No video camera on this device!"); return;
+    }
+
+    _captureSession = [[AVCaptureSession alloc] init];
+    _videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:nil];
+    
+    if ([_captureSession canAddInput:_videoInput]) {
+        [_captureSession addInput:_videoInput];
+    }
+    _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+}
+
+- (void)startRunning {
+    if (_running) return;
+    
+    [_captureSession startRunning];
+    _running = YES;
+}
+
+- (void)stopRunning {
+    if (!_running) return;
+    
+    [_captureSession stopRunning];
+    _running = NO;
 }
 
 # pragma mark - picker methods

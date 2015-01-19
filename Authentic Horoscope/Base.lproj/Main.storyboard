@@ -51,11 +51,16 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ihf-Kg-YMa">
                                 <rect key="frame" x="0.0" y="90" width="600" height="162"/>
                             </pickerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYq-b3-XSn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="horoscopeLabel" destination="Xp5-kq-UTx" id="Zv8-72-Y03"/>
+                        <outlet property="previewView" destination="CYq-b3-XSn" id="ZSY-n1-RrF"/>
                         <outlet property="signPicker" destination="Ihf-Kg-YMa" id="3I1-Id-eHe"/>
                     </connections>
                 </viewController>

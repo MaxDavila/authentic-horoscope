@@ -168,6 +168,7 @@
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
     pageContentViewController.pageIndex = index;
     pageContentViewController.hidePicker = YES;
+    pageContentViewController.presentCamera = NO;
 
     if (index == 0) {
         pageContentViewController.horoscopeText = @"";
@@ -178,6 +179,7 @@
     }
     else if (index == 2) {
         pageContentViewController.horoscopeText = @"Camera view";
+        pageContentViewController.presentCamera = YES;
     }
     return pageContentViewController;
 }
