@@ -7,20 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PageContentViewController.h"
 #import "Horoscope.h"
+#import "LandingViewController.h"
 
 
-@interface ViewController : UIViewController <NSXMLParserDelegate,UIPageViewControllerDataSource>
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@interface ViewController : UIViewController <NSXMLParserDelegate>
 
 @property (strong, nonatomic) NSString *todayHoroscope;
 @property (strong, nonatomic) NSString *birthdate;
 
 @property NSUInteger pageCount;
-
-- (PageContentViewController *)viewControllerAtIndex:(NSUInteger)index;
-
 
 @property (nonatomic, strong) NSXMLParser *xmlParser;
 @property (nonatomic, strong) NSMutableDictionary *dataStorage;

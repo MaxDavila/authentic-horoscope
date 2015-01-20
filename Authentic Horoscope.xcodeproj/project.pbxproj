@@ -15,9 +15,11 @@
 		709D317F1A6A399400892038 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709D317E1A6A399400892038 /* Images.xcassets */; };
 		709D31821A6A399400892038 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709D31801A6A399400892038 /* LaunchScreen.xib */; };
 		709D318E1A6A399400892038 /* Authentic_HoroscopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */; };
-		709D319C1A6ABDA800892038 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D319B1A6ABDA800892038 /* PageContentViewController.m */; };
 		709D319F1A6B1D3100892038 /* Horoscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D319E1A6B1D3100892038 /* Horoscope.m */; };
 		709D31A51A6B5B6200892038 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31A41A6B5B6200892038 /* XMLParser.m */; };
+		709D31AB1A6D7DAA00892038 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31AA1A6D7DA900892038 /* SettingsViewController.m */; };
+		709D31AE1A6D7E0600892038 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31AD1A6D7E0600892038 /* LandingViewController.m */; };
+		709D31B11A6D7E1200892038 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31B01A6D7E1200892038 /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +47,17 @@
 		709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authentic HoroscopeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		709D318C1A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authentic_HoroscopeTests.m; sourceTree = "<group>"; };
-		709D319A1A6ABDA800892038 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
-		709D319B1A6ABDA800892038 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
 		709D319D1A6B1D3000892038 /* Horoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horoscope.h; sourceTree = "<group>"; };
 		709D319E1A6B1D3100892038 /* Horoscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Horoscope.m; sourceTree = "<group>"; };
 		709D31A21A6B327500892038 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		709D31A31A6B5B6200892038 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		709D31A41A6B5B6200892038 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		709D31A91A6D7DA900892038 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		709D31AA1A6D7DA900892038 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		709D31AC1A6D7E0600892038 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		709D31AD1A6D7E0600892038 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		709D31AF1A6D7E1200892038 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		709D31B01A6D7E1200892038 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		E2D09D33B2208B74F547F85C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FE3F981EB21B6C69670D13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,11 +111,15 @@
 				709D31791A6A399400892038 /* ViewController.m */,
 				709D31A31A6B5B6200892038 /* XMLParser.h */,
 				709D31A41A6B5B6200892038 /* XMLParser.m */,
-				709D319A1A6ABDA800892038 /* PageContentViewController.h */,
-				709D319B1A6ABDA800892038 /* PageContentViewController.m */,
 				709D319D1A6B1D3000892038 /* Horoscope.h */,
 				709D319E1A6B1D3100892038 /* Horoscope.m */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
+				709D31A91A6D7DA900892038 /* SettingsViewController.h */,
+				709D31AA1A6D7DA900892038 /* SettingsViewController.m */,
+				709D31AC1A6D7E0600892038 /* LandingViewController.h */,
+				709D31AD1A6D7E0600892038 /* LandingViewController.m */,
+				709D31AF1A6D7E1200892038 /* CameraViewController.h */,
+				709D31B01A6D7E1200892038 /* CameraViewController.m */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D31801A6A399400892038 /* LaunchScreen.xib */,
 				709D31711A6A399400892038 /* Supporting Files */,
@@ -297,10 +307,12 @@
 			files = (
 				709D319F1A6B1D3100892038 /* Horoscope.m in Sources */,
 				709D317A1A6A399400892038 /* ViewController.m in Sources */,
-				709D319C1A6ABDA800892038 /* PageContentViewController.m in Sources */,
 				709D31771A6A399400892038 /* AppDelegate.m in Sources */,
 				709D31A51A6B5B6200892038 /* XMLParser.m in Sources */,
 				709D31741A6A399400892038 /* main.m in Sources */,
+				709D31B11A6D7E1200892038 /* CameraViewController.m in Sources */,
+				709D31AE1A6D7E0600892038 /* LandingViewController.m in Sources */,
+				709D31AB1A6D7DAA00892038 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
