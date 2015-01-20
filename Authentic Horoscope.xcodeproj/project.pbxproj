@@ -20,6 +20,7 @@
 		709D31AB1A6D7DAA00892038 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31AA1A6D7DA900892038 /* SettingsViewController.m */; };
 		709D31AE1A6D7E0600892038 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31AD1A6D7E0600892038 /* LandingViewController.m */; };
 		709D31B11A6D7E1200892038 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31B01A6D7E1200892038 /* CameraViewController.m */; };
+		709D31BA1A6E29FE00892038 /* HoroscopeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31B91A6E29FE00892038 /* HoroscopeApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		709D31AD1A6D7E0600892038 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		709D31AF1A6D7E1200892038 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		709D31B01A6D7E1200892038 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		709D31B81A6E29FE00892038 /* HoroscopeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoroscopeApi.h; sourceTree = "<group>"; };
+		709D31B91A6E29FE00892038 /* HoroscopeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoroscopeApi.m; sourceTree = "<group>"; };
 		E2D09D33B2208B74F547F85C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FE3F981EB21B6C69670D13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +116,8 @@
 				709D31A41A6B5B6200892038 /* XMLParser.m */,
 				709D319D1A6B1D3000892038 /* Horoscope.h */,
 				709D319E1A6B1D3100892038 /* Horoscope.m */,
+				709D31B81A6E29FE00892038 /* HoroscopeApi.h */,
+				709D31B91A6E29FE00892038 /* HoroscopeApi.m */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
 				709D31A91A6D7DA900892038 /* SettingsViewController.h */,
 				709D31AA1A6D7DA900892038 /* SettingsViewController.m */,
@@ -305,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709D31BA1A6E29FE00892038 /* HoroscopeApi.m in Sources */,
 				709D319F1A6B1D3100892038 /* Horoscope.m in Sources */,
 				709D317A1A6A399400892038 /* ViewController.m in Sources */,
 				709D31771A6A399400892038 /* AppDelegate.m in Sources */,

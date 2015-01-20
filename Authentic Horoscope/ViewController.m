@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
-#import "XMLParser.h"
+#import "LandingViewController.h"
 
 @interface ViewController () <UIPageViewControllerDataSource>
 
@@ -22,38 +22,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Setup url
-    NSString *urlString = @"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=1/16/2015";
-    
-    // Make async request
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFHTTPResponseSerializer * responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer = responseSerializer;
 
-    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (responseObject) {
-            NSDictionary *parsedResponse = [XMLParser getParsedResponse:responseObject];
-            
-            NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
-            if (sign) {
-                Horoscope *horoscope = [Horoscope initWithData:parsedResponse];
-                self.todayHoroscope = [horoscope getSnippetForSign:sign];
-            }
-            else {
-                self.todayHoroscope = @"Go set your sign!";
-            }
-            
-            [self setupViewControllers];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    [HoroscopeApi getPredictionsFor:@"1/16/15" withSuccessBlock:^(NSDictionary *responseObject) {
+        if (responseObject)
+            [self setupUserPrediction:responseObject];
     }];
+
 }
 
 # pragma mark - helper methods
 
-- (void) setupViewControllers {
+- (void)setupUserPrediction:(NSDictionary *)responseObject {
+    
+    NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
+    if (sign) {
+        Horoscope *horoscope = [Horoscope initWithData:responseObject];
+        self.todayHoroscope = [horoscope getSnippetForSign:sign];
+    }
+    else {
+        self.todayHoroscope = @"Go set your sign!";
+    }
+    
+    [self setupViewControllers];
+    
+}
+
+- (void)setupViewControllers {
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
