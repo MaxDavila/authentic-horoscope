@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface CameraViewController ()
-
 @end
 
 @implementation CameraViewController {

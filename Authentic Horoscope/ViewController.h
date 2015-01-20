@@ -16,13 +16,12 @@
 @property (strong, nonatomic) NSString *todayHoroscope;
 @property (strong, nonatomic) NSString *birthdate;
 
-@property NSUInteger pageCount;
 
 @property (nonatomic, strong) NSXMLParser *xmlParser;
 @property (nonatomic, strong) NSMutableDictionary *dataStorage;
-
 @property (nonatomic, strong) NSMutableDictionary *tempDataStorage;
 @property (nonatomic, strong) NSMutableString *foundValue;
 @property (nonatomic, strong) NSString *currentElement;
+
 @end
 
