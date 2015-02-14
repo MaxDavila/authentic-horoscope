@@ -11,5 +11,8 @@
 @interface SettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIPickerView *signPicker;
+@property (weak, nonatomic) IBOutlet UIView *circleView;
+
+- (IBAction)button:(id)sender;
 
 @end

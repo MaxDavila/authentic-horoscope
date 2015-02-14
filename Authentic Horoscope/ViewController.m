@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [HoroscopeApi getPredictionsFor:@"1/16/15" withSuccessBlock:^(NSDictionary *responseObject) {
+    [HoroscopeApi getPredictionsFor:@"02/12/15" withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject)
             [self setupUserPrediction:responseObject];
     }];
@@ -52,7 +52,7 @@
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
-    myViewControllers = @[@"SettingsViewController",@"LandingViewController",@"CameraViewController"];
+    myViewControllers = @[@"SettingsViewController",@"LandingViewController",@"AVCamViewController"];
     
     NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
     [self.pageViewController setViewControllers:viewControllers

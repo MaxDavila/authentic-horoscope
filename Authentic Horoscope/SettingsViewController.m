@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "CSAnimationView.h"
 
 @interface SettingsViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -38,9 +39,16 @@
     NSLog(@"pickerdata %@", _pickerData);
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.circleView startCanvasAnimation];
+
+}
+
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     // Preload the picker with user settings.
     NSInteger row = [[[NSUserDefaults standardUserDefaults] objectForKey:@"row"] intValue];
     if ((row >= 0) && (row < [_pickerData count])) {
