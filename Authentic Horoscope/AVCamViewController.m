@@ -47,6 +47,8 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
 @implementation AVCamViewController
 
+//@synthesize scanningLabel;
+
 - (BOOL)isSessionRunningAndDeviceAuthorized
 {
     return [[self session] isRunning] && [self isDeviceAuthorized];
@@ -55,6 +57,24 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 + (NSSet *)keyPathsForValuesAffectingSessionRunningAndDeviceAuthorized
 {
     return [NSSet setWithObjects:@"session.running", @"deviceAuthorized", nil];
+}
+
++(UIImage*) drawText:(NSString*) text
+             inImage:(UIImage*)  image
+             atPoint:(CGPoint)   point
+{
+    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
+    UIFont *font = [UIFont boldSystemFontOfSize: 180.0];
+    NSDictionary *att = @{NSFontAttributeName:font, NSForegroundColorAttributeName: textColor};
+    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    [text drawInRect:rect withAttributes:att];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 - (void)viewDidLoad
@@ -70,6 +90,18 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     
     // Check for device authorization
     [self checkDeviceAuthorizationStatus];
+    
+    // Let the video player occupy 100% of the screen
+    ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
+    
+    // Draw the text label on the videoplayer view
+    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
+    UIFont *font = [UIFont boldSystemFontOfSize:60];
+    NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
+
+    [self.predictionLabel setFont:font];
+    [self.predictionLabel setTextColor:textColor];
+    [self.predictionLabel setText:predictionSnippet];
     
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
@@ -103,7 +135,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 
                 [[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)[self interfaceOrientation]];
 
-                ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
             });
         }
         
@@ -161,7 +192,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     });
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     dispatch_async([self sessionQueue], ^{
         [[self session] stopRunning];
@@ -356,7 +387,14 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             {
                 NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
-                [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:nil];
+
+                // Draw text over image
+                NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
+                UIImage *img = [AVCamViewController drawText:predictionSnippet
+                                            inImage:image
+                                            atPoint:CGPointMake(50, 50)];
+
+                [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[img CGImage] orientation:(ALAssetOrientation)[img imageOrientation] completionBlock:nil];
             }
         }];
     });

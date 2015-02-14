@@ -38,6 +38,10 @@
     if (sign) {
         Horoscope *horoscope = [Horoscope initWithData:responseObject];
         self.todayHoroscope = [horoscope getSnippetForSign:sign];
+        
+        // Store the snippet prediction to be accessed later
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:self.todayHoroscope forKey:@"predictionSnippet"];
     }
     else {
         self.todayHoroscope = @"Go set your sign!";
