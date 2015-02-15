@@ -21,6 +21,8 @@
         _positiveWords = [NSArray arrayWithObjects:@"It's gonna be amazeballs",
                           @"Your day is gonna be fucking grrreat",
                           @"Stars are aligning, go kick some balls",
+                          @"Beer me, bro!",
+                          @"Gatorade me. Bitch!",
                           @"You are fucking Beyoncé today", nil];
         _negativeWords = [NSArray arrayWithObjects:@"Don't play the lottery today",
                           @"Kicking donkey balls",

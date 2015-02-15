@@ -95,12 +95,12 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
     
     // Draw the text label on the videoplayer view
-    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
-    UIFont *font = [UIFont boldSystemFontOfSize:60];
+//    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
+//    UIFont *font = [UIFont boldSystemFontOfSize:60];
     NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
 
-    [self.predictionLabel setFont:font];
-    [self.predictionLabel setTextColor:textColor];
+//    [self.predictionLabel setFont:font];
+//    [self.predictionLabel setTextColor:textColor];
     [self.predictionLabel setText:predictionSnippet];
     
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.

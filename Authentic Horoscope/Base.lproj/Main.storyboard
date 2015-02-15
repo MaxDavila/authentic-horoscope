@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -42,47 +43,303 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-DX-wf7">
-                                <rect key="frame" x="105" y="138" width="320" height="162"/>
-                            </pickerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FP8-Ie-To1" customClass="CSAnimationView">
-                                <rect key="frame" x="267" y="334" width="117" height="115"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2n-Lu-HQ0" customClass="CSAnimationView">
+                                <rect key="frame" x="16" y="58" width="115" height="115"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Circle_icon_behind_camera@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="c0I-6b-Jnp">
-                                        <rect key="frame" x="20" y="20" width="77" height="75"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMW-XX-leq">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="aQE-Ls-uc7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="bounceRight"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.25"/>
+                                        <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-yP-B49">
-                                <rect key="frame" x="234" y="40" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="button:" destination="kVs-eh-2WM" eventType="touchUpInside" id="u1A-Ex-9zo"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UE6-dQ-BGm" customClass="CSAnimationView">
+                                <rect key="frame" x="243" y="58" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-57-V4S">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="eky-SB-v6t"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iah-EC-Bc4" customClass="CSAnimationView">
+                                <rect key="frame" x="469" y="58" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAk-aX-Lc4">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="hfN-Vp-d1x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5N-FT-dMY" customClass="CSAnimationView">
+                                <rect key="frame" x="16" y="181" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-20-xIs">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="AGC-HR-ZlL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goy-Pg-2pT" customClass="CSAnimationView">
+                                <rect key="frame" x="243" y="181" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xb-ng-xQV">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="ccy-Qs-ixH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRi-rr-cA3" customClass="CSAnimationView">
+                                <rect key="frame" x="469" y="181" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-Ql-SRt">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="UPA-5R-bWd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-tS-waU" customClass="CSAnimationView">
+                                <rect key="frame" x="16" y="304" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR1-DV-oVu">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="kzD-XP-4sj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xC-on-UvA" customClass="CSAnimationView">
+                                <rect key="frame" x="243" y="304" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBJ-x6-Byj">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="ryC-JL-X4P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcZ-Rb-veg" customClass="CSAnimationView">
+                                <rect key="frame" x="469" y="304" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-tA-KOd">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="lsF-oF-fOs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jao-re-y7c" customClass="CSAnimationView">
+                                <rect key="frame" x="16" y="427" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sn-L6-1QB">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="6mS-AW-gx3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncq-3X-6lT" customClass="CSAnimationView">
+                                <rect key="frame" x="243" y="427" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIh-N7-zgL">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="YQ3-cy-vzx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzv-Dr-ZnB" customClass="CSAnimationView">
+                                <rect key="frame" x="469" y="427" width="115" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEL-tp-LIz">
+                                        <rect key="frame" x="7" y="7" width="100" height="100"/>
+                                        <state key="normal" title="Button" image="Circle_icon_behind_sign">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signButtonTapped:" destination="kVs-eh-2WM" eventType="touchUpInside" id="ayS-jn-3g3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="circleView" destination="FP8-Ie-To1" id="mF0-dx-cPJ"/>
-                        <outlet property="signPicker" destination="Sh6-DX-wf7" id="qSe-iy-ThP"/>
+                        <outletCollection property="signButtons" destination="EMW-XX-leq" id="PuV-nB-ggV"/>
+                        <outletCollection property="signButtons" destination="3NJ-57-V4S" id="avh-qo-Tnc"/>
+                        <outletCollection property="signButtons" destination="ZAk-aX-Lc4" id="6ZM-6G-fyD"/>
+                        <outletCollection property="signButtons" destination="ErZ-20-xIs" id="uuM-NV-ifA"/>
+                        <outletCollection property="signButtons" destination="1xb-ng-xQV" id="DzY-gS-PTb"/>
+                        <outletCollection property="signButtons" destination="WlO-Ql-SRt" id="h1P-br-ziy"/>
+                        <outletCollection property="signButtons" destination="XR1-DV-oVu" id="A5f-0c-EKS"/>
+                        <outletCollection property="signButtons" destination="ZBJ-x6-Byj" id="3CB-yo-Y5L"/>
+                        <outletCollection property="signButtons" destination="Z9V-tA-KOd" id="CXx-5z-SLp"/>
+                        <outletCollection property="signButtons" destination="0sn-L6-1QB" id="4ob-x9-WBx"/>
+                        <outletCollection property="signButtons" destination="EIh-N7-zgL" id="ubs-40-pEb"/>
+                        <outletCollection property="signButtons" destination="kEL-tp-LIz" id="x0a-fJ-zYQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMR-G0-cln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="583"/>
+            <point key="canvasLocation" x="-395" y="583"/>
         </scene>
         <!--Landing View Controller-->
         <scene sceneID="RLM-y2-LtC">
@@ -96,14 +353,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC">
-                                <rect key="frame" x="51" y="224" width="501" height="308"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC">
+                                <rect key="frame" x="16" y="20" width="568" height="560"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="80"/>
+                                </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="0eC-g6-MKm"/>
+                            <constraint firstAttribute="bottom" secondItem="MVb-1P-3fC" secondAttribute="bottom" constant="20" symbolic="YES" id="KhY-fc-D80"/>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="Qg9-2z-23B"/>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="k9M-Hc-OFB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="snippetPredictionLabel" destination="MVb-1P-3fC" id="pPb-el-1Sg"/>
@@ -111,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrO-ym-cu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="576"/>
+            <point key="canvasLocation" x="270" y="583"/>
         </scene>
         <!--Cam View Controller-->
         <scene sceneID="Cp3-Hu-LCC">
@@ -125,11 +391,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-fw-w0J" customClass="AVCamPreviewView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-fw-w0J" customClass="AVCamPreviewView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whl-6f-8l5">
-                                        <rect key="frame" x="276" y="545" width="48" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-qg-XWr">
+                                        <rect key="frame" x="14" y="8" width="578" height="551"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="80"/>
+                                        <color key="textColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="20" y="20" width="42" height="21"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="20" y="20" width="42" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhX-N4-IP0">
+                                        <rect key="frame" x="8" y="562" width="30" height="30"/>
+                                        <state key="normal" title="Flip">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeCamera:" destination="lvv-Sa-QNh" eventType="touchUpInside" id="WdR-lB-dAw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whl-6f-8l5">
+                                        <rect key="frame" x="558" y="567" width="34" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="6ef-Cj-LuU"/>
+                                            <constraint firstAttribute="height" constant="20" id="BhO-Xs-HoJ"/>
+                                        </constraints>
                                         <state key="normal" title="Still">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,25 +429,36 @@
                                             <action selector="snapStillImage:" destination="lvv-Sa-QNh" eventType="touchUpInside" id="daR-HM-AhT"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-qg-XWr">
-                                        <rect key="frame" x="8" y="8" width="584" height="505"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhX-N4-IP0">
-                                        <rect key="frame" x="146" y="545" width="30" height="30"/>
-                                        <state key="normal" title="Flip">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeCamera:" destination="lvv-Sa-QNh" eventType="touchUpInside" id="WdR-lB-dAw"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="rhX-N4-IP0" firstAttribute="baseline" secondItem="whl-6f-8l5" secondAttribute="baseline" id="0yi-Gu-vxe"/>
+                                    <constraint firstItem="whl-6f-8l5" firstAttribute="trailing" secondItem="ELb-fw-w0J" secondAttribute="trailingMargin" id="Diu-4D-iAi"/>
+                                    <constraint firstAttribute="bottom" secondItem="whl-6f-8l5" secondAttribute="bottom" constant="13" id="O1u-N3-9xD"/>
+                                    <constraint firstItem="hNa-qg-XWr" firstAttribute="trailing" secondItem="whl-6f-8l5" secondAttribute="trailing" id="T05-yn-Kip"/>
+                                    <constraint firstItem="whl-6f-8l5" firstAttribute="top" secondItem="hNa-qg-XWr" secondAttribute="bottom" constant="8" symbolic="YES" id="mNd-cg-iK0"/>
+                                    <constraint firstItem="rhX-N4-IP0" firstAttribute="leading" secondItem="ELb-fw-w0J" secondAttribute="leadingMargin" id="ovv-NN-iXb"/>
+                                    <constraint firstItem="hNa-qg-XWr" firstAttribute="top" secondItem="ELb-fw-w0J" secondAttribute="topMargin" id="rop-o8-pdj"/>
+                                    <constraint firstItem="hNa-qg-XWr" firstAttribute="leading" secondItem="ELb-fw-w0J" secondAttribute="leading" constant="14" id="vQH-Qw-jYN"/>
+                                </constraints>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="-16" y="180" width="297" height="600"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-20" y="0.0" width="82" height="59"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-20" y="-20" width="82" height="0.0"/>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ELb-fw-w0J" secondAttribute="trailing" id="582-xQ-fB5"/>
+                            <constraint firstItem="ELb-fw-w0J" firstAttribute="top" secondItem="2ii-XT-Orx" secondAttribute="top" id="OcL-vu-W80"/>
+                            <constraint firstItem="ELb-fw-w0J" firstAttribute="leading" secondItem="2ii-XT-Orx" secondAttribute="leading" id="acC-G1-QFR"/>
+                            <constraint firstItem="ELb-fw-w0J" firstAttribute="bottom" secondItem="25F-kD-eqS" secondAttribute="top" id="ahR-go-9fe"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="rhX-N4-IP0" id="dE7-jq-LhU"/>
@@ -167,35 +469,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONz-0l-FYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="583"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Tc7-e1-xXK">
-            <objects>
-                <tableViewController id="Fr4-JE-dg0" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nAo-3S-xca">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FdB-Wk-WsO">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FdB-Wk-WsO" id="oph-Uv-QKm">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Fr4-JE-dg0" id="IvI-b1-reW"/>
-                            <outlet property="delegate" destination="Fr4-JE-dg0" id="Mls-8N-eFP"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Trh-QE-imj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="917" y="583"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Circle_icon_behind_camera@3x.png" width="324" height="324"/>
+        <image name="Circle_icon_behind_sign" width="121" height="121"/>
     </resources>
 </document>

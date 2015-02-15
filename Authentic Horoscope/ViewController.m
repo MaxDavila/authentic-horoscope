@@ -22,17 +22,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [HoroscopeApi getPredictionsFor:@"02/12/15" withSuccessBlock:^(NSDictionary *responseObject) {
-        if (responseObject)
-            [self setupUserPrediction:responseObject];
-    }];
-
+    [self loadPrediction];
 }
 
 # pragma mark - helper methods
+- (void)loadPrediction {
+    [HoroscopeApi getPredictionsFor:@"02/15/15" withSuccessBlock:^(NSDictionary *responseObject) {
+        if (responseObject)
+            [self showPrediction:responseObject];
+    }];
+}
 
-- (void)setupUserPrediction:(NSDictionary *)responseObject {
+- (void)showPrediction:(NSDictionary *)responseObject {
     
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
