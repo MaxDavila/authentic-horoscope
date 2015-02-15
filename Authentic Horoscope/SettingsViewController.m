@@ -12,7 +12,7 @@
 @interface SettingsViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *signButtons;
-
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *collectionView;
 @end
 
 @implementation SettingsViewController {
@@ -39,14 +39,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.circleView startCanvasAnimation];
 
+    for (int i = 0; i < [self.collectionView count]; i++) {
+        [self.collectionView[i] startCanvasAnimation];
+    }
 }
 
 # pragma mark - actions
 - (IBAction)signButtonTapped:(UIButton *)sender {
     NSUInteger chosenButton = [self.signButtons indexOfObject:sender];
-    NSLog(@"button index: %lu", (unsigned long)chosenButton);
     
     // Save selection to user defaults dict.
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

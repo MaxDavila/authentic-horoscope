@@ -335,6 +335,19 @@
                         <outletCollection property="signButtons" destination="0sn-L6-1QB" id="4ob-x9-WBx"/>
                         <outletCollection property="signButtons" destination="EIh-N7-zgL" id="ubs-40-pEb"/>
                         <outletCollection property="signButtons" destination="kEL-tp-LIz" id="x0a-fJ-zYQ"/>
+                        <outletCollection property="collectionView" destination="Uzv-Dr-ZnB" id="sgu-hT-XmN"/>
+                        <outletCollection property="collectionView" destination="J2n-Lu-HQ0" id="nDg-6y-6mK"/>
+                        <outletCollection property="collectionView" destination="UE6-dQ-BGm" id="r1y-7g-iQn"/>
+                        <outletCollection property="collectionView" destination="iah-EC-Bc4" id="qUj-NS-35B"/>
+                        <outletCollection property="collectionView" destination="S5N-FT-dMY" id="VTv-Xg-pCk"/>
+                        <outletCollection property="collectionView" destination="goy-Pg-2pT" id="P8t-1X-1en"/>
+                        <outletCollection property="collectionView" destination="XRi-rr-cA3" id="vud-vq-Nhj"/>
+                        <outletCollection property="collectionView" destination="pbz-tS-waU" id="i1I-Ej-hCN"/>
+                        <outletCollection property="collectionView" destination="7xC-on-UvA" id="Mkw-NO-0NJ"/>
+                        <outletCollection property="collectionView" destination="bcZ-Rb-veg" id="RqE-AI-gQK"/>
+                        <outletCollection property="collectionView" destination="jao-re-y7c" id="eJn-jn-4Kt"/>
+                        <outletCollection property="collectionView" destination="ncq-3X-6lT" id="3Ul-mZ-TK5"/>
+                        <outletCollection property="collectionView" destination="Uzv-Dr-ZnB" id="YZv-3v-M9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMR-G0-cln" userLabel="First Responder" sceneMemberID="firstResponder"/>
