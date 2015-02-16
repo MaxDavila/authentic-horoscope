@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		196D3CE7D367730BB571CDBE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32093DB50556684CEB3E5F31 /* libPods.a */; };
+		7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88E1A9287AD004805E3 /* Brandon_bld.otf */; };
+		7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88F1A9287AD004805E3 /* Brandon_blk.otf */; };
+		7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8901A9287AD004805E3 /* Brandon_light.otf */; };
+		7073C8961A9287AD004805E3 /* Brandon_med.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8911A9287AD004805E3 /* Brandon_med.otf */; };
+		7073C8971A9287AD004805E3 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8921A9287AD004805E3 /* Brandon_reg.otf */; };
 		709D31741A6A399400892038 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31731A6A399400892038 /* main.m */; };
 		709D31771A6A399400892038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31761A6A399400892038 /* AppDelegate.m */; };
 		709D317A1A6A399400892038 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31791A6A399400892038 /* ViewController.m */; };
@@ -37,6 +42,11 @@
 
 /* Begin PBXFileReference section */
 		32093DB50556684CEB3E5F31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7073C88E1A9287AD004805E3 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
+		7073C88F1A9287AD004805E3 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
+		7073C8901A9287AD004805E3 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
+		7073C8911A9287AD004805E3 /* Brandon_med.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_med.otf; sourceTree = "<group>"; };
+		7073C8921A9287AD004805E3 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
 		709D316E1A6A399400892038 /* Authentic Horoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authentic Horoscope.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		709D31721A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709D31731A6A399400892038 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +100,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7073C88D1A928742004805E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7073C88E1A9287AD004805E3 /* Brandon_bld.otf */,
+				7073C88F1A9287AD004805E3 /* Brandon_blk.otf */,
+				7073C8901A9287AD004805E3 /* Brandon_light.otf */,
+				7073C8911A9287AD004805E3 /* Brandon_med.otf */,
+				7073C8921A9287AD004805E3 /* Brandon_reg.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		709D31651A6A399400892038 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +157,7 @@
 				709D31AD1A6D7E0600892038 /* LandingViewController.m */,
 				709D31AF1A6D7E1200892038 /* CameraViewController.h */,
 				709D31B01A6D7E1200892038 /* CameraViewController.m */,
+				7073C88D1A928742004805E3 /* Fonts */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D31801A6A399400892038 /* LaunchScreen.xib */,
 				709D31711A6A399400892038 /* Supporting Files */,
@@ -267,9 +290,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */,
+				7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */,
 				709D317D1A6A399400892038 /* Main.storyboard in Resources */,
 				709D31821A6A399400892038 /* LaunchScreen.xib in Resources */,
 				709D317F1A6A399400892038 /* Images.xcassets in Resources */,
+				7073C8961A9287AD004805E3 /* Brandon_med.otf in Resources */,
+				7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */,
+				7073C8971A9287AD004805E3 /* Brandon_reg.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

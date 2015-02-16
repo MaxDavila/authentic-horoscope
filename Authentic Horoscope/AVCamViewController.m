@@ -64,7 +64,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
              atPoint:(CGPoint)   point
 {
     UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
-    UIFont *font = [UIFont boldSystemFontOfSize: 180.0];
+    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:180.0];
     NSDictionary *att = @{NSFontAttributeName:font, NSForegroundColorAttributeName: textColor};
     CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
 
