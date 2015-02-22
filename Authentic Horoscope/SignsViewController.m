@@ -23,8 +23,7 @@
 
 @implementation SignsViewController
 
-- (void)loadView
-{
+- (void)loadView {
     self.signsView = [[SignsView alloc] init];
 
     for (int i = 0; i < 12; i++) {
@@ -46,8 +45,7 @@
 }
 
 
-- (void)signButtonAction:(UIButton *)button
-{
+- (void)signButtonAction:(UIButton *)button {
     int tag = (int)button.tag - BUTTON_VIEW_TAG_INDEX;
     SignsButtonView *signButtonView = (SignsButtonView *)[self.view viewWithTag:button.tag];
     NSLog(@"Tapped index %i sign %@", tag, signButtonView.signLabel.text);
@@ -56,26 +54,16 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:signButtonView.signLabel.text forKey:@"sign"];
     [userDefaults synchronize];
-    [self loadPrediction];
-    
-//    [self.parentViewController.parentViewController viewDidLoad];
+    [self showPrediction];
 }
 
-- (void)loadPrediction {
-    [HoroscopeApi getPredictionsFor:@"02/18/15" withSuccessBlock:^(NSDictionary *responseObject) {
-        if (responseObject)
-            [self showPrediction:responseObject];
-    }];
-}
-
-- (void)showPrediction:(NSDictionary *)responseObject {
+- (void)showPrediction {
     
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
 
-    Horoscope *horoscope = [Horoscope initWithData:responseObject];
+    Horoscope *horoscope = [Horoscope sharedInstance];
     NSString *todayHoroscopeSnippet = [horoscope getSnippetForSign:sign];
         
-    // Store the snippet prediction to be accessed later
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:todayHoroscopeSnippet forKey:@"predictionSnippet"];
 }

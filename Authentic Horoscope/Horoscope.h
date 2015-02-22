@@ -10,13 +10,9 @@
 
 @interface Horoscope : NSObject
 
-@property (nonatomic, strong) NSDictionary *data;
-@property (nonatomic, strong) NSArray *positiveWords;
-@property (nonatomic, strong) NSArray *negativeWords;
-@property (nonatomic, strong) NSArray *neutralSentences;
-
 - (NSString *)getSnippetForSign:(NSString *)sign;
 - (NSString *)getHoroscopeForSign:(NSString *)sign;
 
-+ (instancetype)initWithData:(NSDictionary *)data;
+- (void)loadData:(NSDictionary *)data;
++ (Horoscope *) sharedInstance;
 @end

@@ -9,27 +9,37 @@
 #import "Horoscope.h"
 #include "SKPolygraph.h"
 
-@implementation Horoscope
-
-+ (instancetype)initWithData:(NSDictionary *)data {
-    return [[Horoscope alloc] initWithData:data];
+@implementation Horoscope {
+    NSDictionary *_data;
+    NSArray *_positiveWords;
+    NSArray *_negativeWords;
 }
 
-- (instancetype)initWithData:(NSDictionary *)data {
-    if (self = [super init]) {
-        _data = data;
-        _positiveWords = [NSArray arrayWithObjects:@"It's gonna be amazeballs",
-                          @"Your day is gonna be fucking grrreat",
-                          @"Stars are aligning, go kick some balls",
-                          @"Beer me, bro!",
-                          @"Gatorade me. Bitch!",
-                          @"You are fucking Beyoncé today", nil];
-        _negativeWords = [NSArray arrayWithObjects:@"Don't play the lottery today",
-                          @"Kicking donkey balls",
-                          @"Don't talk to anyone with a fucking fedora today or you'll regret it",
-                          @"Don't bother going outside", nil];
++ (Horoscope *)sharedInstance {
+    static Horoscope *singletonInstance = nil;
+    if (singletonInstance == nil) {
+        singletonInstance = [[super alloc] init];
     }
-    return self;
+    return singletonInstance;
+}
+
+- (void)loadData:(NSDictionary *)data {
+    _data = data;
+    _positiveWords = [NSArray arrayWithObjects:@"It's gonna be amazeballs",
+                            @"Your day is gonna be fucking grrreat",
+                            @"Stars are aligning, go kick some balls",
+                            @"Beer me, bro!",
+                            @"Gatorade me. Bitch!",
+                            @"Fuck this, just do it already",
+                            @"You are fucking Beyoncé today", nil];
+    
+    _negativeWords = [NSArray arrayWithObjects:@"Don't play the lottery today",
+                            @"Kicking donkey balls",
+                            @"Don't talk to anyone with a fucking fedora today",
+                            @"Just take the day off",
+                            @"Just go back to bed, today's not the day",
+                            @"You really shouldn't believe in this shit",
+                            @"Don't bother going outside", nil];
 }
 
 - (NSString *)getSnippetForSign:(NSString *)sign {

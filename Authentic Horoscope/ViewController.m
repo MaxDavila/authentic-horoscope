@@ -37,7 +37,10 @@
     
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
-        Horoscope *horoscope = [Horoscope initWithData:responseObject];
+        // Load singleton Horoscope instance from response object
+        Horoscope *horoscope = [Horoscope sharedInstance];
+        [horoscope loadData:responseObject];
+
         self.todayHoroscope = [horoscope getSnippetForSign:sign];
         
         // Store the snippet prediction to be accessed later

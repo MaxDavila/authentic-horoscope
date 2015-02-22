@@ -28,6 +28,8 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 //- (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)changeCamera:(id)sender;
 - (IBAction)snapStillImage:(id)sender;
+- (IBAction)changeColor:(id)sender;
+
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
 
 // Session management.
@@ -399,6 +401,17 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             }
         }];
     });
+}
+
+- (IBAction)changeColor:(id)sender {
+    
+    UIColor *labelColor = self.predictionLabel.textColor;
+    if ([labelColor isEqual:[UIColor whiteColor]]) {
+        [self.predictionLabel setTextColor:[UIColor blackColor]];
+    }
+    else {
+        [self.predictionLabel setTextColor:[UIColor whiteColor]];
+    }
 }
 
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer
