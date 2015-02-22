@@ -56,10 +56,9 @@
     
     // Update user horoscope
     Horoscope *horoscope = [Horoscope sharedInstance];
-    NSString *todayHoroscopeSnippet = [horoscope getSnippetForSign:sign];
-    
     UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
-    userHoroscope.snippetHoroscope = todayHoroscopeSnippet;
+
+    userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
 }
 
 @end

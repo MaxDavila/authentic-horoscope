@@ -65,11 +65,11 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     return [NSSet setWithObjects:@"session.running", @"deviceAuthorized", nil];
 }
 
-+(UIImage*) drawText:(NSString*) text
-             inImage:(UIImage*)  image
-             atPoint:(CGPoint)   point
+-(UIImage*)drawText:(NSString*) text
+            inImage:(UIImage*)  image
+            atPoint:(CGPoint)   point
 {
-    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
+    UIColor *textColor = self.predictionLabel.textColor;
     UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:180.0];
     NSDictionary *att = @{NSFontAttributeName:font, NSForegroundColorAttributeName: textColor};
     CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
@@ -395,9 +395,9 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
 
                 // Draw text over image
-                UIImage *img = [AVCamViewController drawText:userHoroscope.snippetHoroscope
+                UIImage *img = [self drawText:userHoroscope.snippetHoroscope
                                             inImage:image
-                                            atPoint:CGPointMake(50, 50)];
+                                            atPoint:CGPointMake(30, 30)];
 
                 [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[img CGImage] orientation:(ALAssetOrientation)[img imageOrientation] completionBlock:nil];
             }

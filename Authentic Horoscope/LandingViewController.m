@@ -24,7 +24,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    
     UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
     if (userHoroscope.snippetHoroscope) {
         self.snippetPredictionLabel.text = userHoroscope.snippetHoroscope;

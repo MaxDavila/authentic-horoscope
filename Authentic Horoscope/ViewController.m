@@ -57,9 +57,6 @@
         UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
         userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
     }
-    else {
-        self.todayHoroscope = @"Go set your sign!";
-    }
     
     [self setupViewControllers];
     
