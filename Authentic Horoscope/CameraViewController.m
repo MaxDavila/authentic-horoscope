@@ -26,6 +26,7 @@
     [self setupCaptureSession];
     _previewLayer.frame = _previewView.bounds;
     [_previewView.layer addSublayer:_previewLayer];
+//    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     
 }
 

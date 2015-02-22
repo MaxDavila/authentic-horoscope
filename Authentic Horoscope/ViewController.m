@@ -27,7 +27,7 @@
 
 # pragma mark - helper methods
 - (void)loadPrediction {
-    [HoroscopeApi getPredictionsFor:@"02/15/15" withSuccessBlock:^(NSDictionary *responseObject) {
+    [HoroscopeApi getPredictionsFor:@"02/18/15" withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject)
             [self showPrediction:responseObject];
     }];
@@ -57,7 +57,7 @@
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
-    myViewControllers = @[@"SettingsViewController",@"LandingViewController",@"AVCamViewController"];
+    myViewControllers = @[@"SignsViewController",@"LandingViewController",@"AVCamViewController"];
     
     NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
     [self.pageViewController setViewControllers:viewControllers
@@ -98,10 +98,11 @@
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     NSString *identifier = myViewControllers[index];
+    NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
 
     if ([identifier  isEqualToString:@"LandingViewController"]) {
         LandingViewController *viewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        viewcontroller.snippetText = self.todayHoroscope;
+        viewcontroller.snippetText = predictionSnippet;
         return viewcontroller;
     }
     else {

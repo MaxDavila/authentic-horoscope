@@ -19,5 +19,4 @@
 - (NSString *)getHoroscopeForSign:(NSString *)sign;
 
 + (instancetype)initWithData:(NSDictionary *)data;
-
 @end

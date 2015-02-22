@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		196D3CE7D367730BB571CDBE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32093DB50556684CEB3E5F31 /* libPods.a */; };
+		7024F1E41A999B4A005FAF5C /* AH_launch_6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */; };
 		7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88E1A9287AD004805E3 /* Brandon_bld.otf */; };
 		7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88F1A9287AD004805E3 /* Brandon_blk.otf */; };
 		7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8901A9287AD004805E3 /* Brandon_light.otf */; };
@@ -26,6 +27,9 @@
 		709D31AE1A6D7E0600892038 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31AD1A6D7E0600892038 /* LandingViewController.m */; };
 		709D31B11A6D7E1200892038 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31B01A6D7E1200892038 /* CameraViewController.m */; };
 		709D31BA1A6E29FE00892038 /* HoroscopeApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31B91A6E29FE00892038 /* HoroscopeApi.m */; };
+		70E557A71A950DAF00A44594 /* SignsButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E557A21A950DAF00A44594 /* SignsButtonView.m */; };
+		70E557A81A950DAF00A44594 /* SignsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E557A41A950DAF00A44594 /* SignsView.m */; };
+		70E557A91A950DAF00A44594 /* SignsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E557A61A950DAF00A44594 /* SignsViewController.m */; };
 		70E82D701A8DA99B00E73F54 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E82D6F1A8DA99B00E73F54 /* AVCamPreviewView.m */; };
 		70E82D731A8DA9D400E73F54 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E82D721A8DA9D400E73F54 /* AVCamViewController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		32093DB50556684CEB3E5F31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AH_launch_6+.png"; sourceTree = "<group>"; };
 		7073C88E1A9287AD004805E3 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
 		7073C88F1A9287AD004805E3 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
 		7073C8901A9287AD004805E3 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
@@ -73,6 +78,12 @@
 		709D31B01A6D7E1200892038 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		709D31B81A6E29FE00892038 /* HoroscopeApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoroscopeApi.h; sourceTree = "<group>"; };
 		709D31B91A6E29FE00892038 /* HoroscopeApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoroscopeApi.m; sourceTree = "<group>"; };
+		70E557A11A950DAF00A44594 /* SignsButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignsButtonView.h; sourceTree = "<group>"; };
+		70E557A21A950DAF00A44594 /* SignsButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignsButtonView.m; sourceTree = "<group>"; };
+		70E557A31A950DAF00A44594 /* SignsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignsView.h; sourceTree = "<group>"; };
+		70E557A41A950DAF00A44594 /* SignsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignsView.m; sourceTree = "<group>"; };
+		70E557A51A950DAF00A44594 /* SignsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignsViewController.h; sourceTree = "<group>"; };
+		70E557A61A950DAF00A44594 /* SignsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignsViewController.m; sourceTree = "<group>"; };
 		70E82D6E1A8DA99B00E73F54 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		70E82D6F1A8DA99B00E73F54 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		70E82D711A8DA9D400E73F54 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
@@ -100,6 +111,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7024F1CF1A99446A005FAF5C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				709D31781A6A399400892038 /* ViewController.h */,
+				709D31791A6A399400892038 /* ViewController.m */,
+				70E557A51A950DAF00A44594 /* SignsViewController.h */,
+				70E557A61A950DAF00A44594 /* SignsViewController.m */,
+				709D31AC1A6D7E0600892038 /* LandingViewController.h */,
+				709D31AD1A6D7E0600892038 /* LandingViewController.m */,
+				70E82D711A8DA9D400E73F54 /* AVCamViewController.h */,
+				70E82D721A8DA9D400E73F54 /* AVCamViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7024F1D01A9944BF005FAF5C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				709D31B81A6E29FE00892038 /* HoroscopeApi.h */,
+				709D31B91A6E29FE00892038 /* HoroscopeApi.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7024F1D11A9944D1005FAF5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				709D31A31A6B5B6200892038 /* XMLParser.h */,
+				709D31A41A6B5B6200892038 /* XMLParser.m */,
+				709D319D1A6B1D3000892038 /* Horoscope.h */,
+				709D319E1A6B1D3100892038 /* Horoscope.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7024F1D21A9944FA005FAF5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				70E82D6E1A8DA99B00E73F54 /* AVCamPreviewView.h */,
+				70E82D6F1A8DA99B00E73F54 /* AVCamPreviewView.m */,
+				70E557A11A950DAF00A44594 /* SignsButtonView.h */,
+				70E557A21A950DAF00A44594 /* SignsButtonView.m */,
+				70E557A31A950DAF00A44594 /* SignsView.h */,
+				70E557A41A950DAF00A44594 /* SignsView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		7073C88D1A928742004805E3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +174,7 @@
 		709D31651A6A399400892038 = {
 			isa = PBXGroup;
 			children = (
+				7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */,
 				709D31A21A6B327500892038 /* Podfile */,
 				709D31701A6A399400892038 /* Authentic Horoscope */,
 				709D318A1A6A399400892038 /* Authentic HoroscopeTests */,
@@ -138,25 +198,15 @@
 			children = (
 				709D31751A6A399400892038 /* AppDelegate.h */,
 				709D31761A6A399400892038 /* AppDelegate.m */,
-				709D31781A6A399400892038 /* ViewController.h */,
-				709D31791A6A399400892038 /* ViewController.m */,
-				709D31A31A6B5B6200892038 /* XMLParser.h */,
-				709D31A41A6B5B6200892038 /* XMLParser.m */,
-				709D319D1A6B1D3000892038 /* Horoscope.h */,
-				709D319E1A6B1D3100892038 /* Horoscope.m */,
-				709D31B81A6E29FE00892038 /* HoroscopeApi.h */,
-				709D31B91A6E29FE00892038 /* HoroscopeApi.m */,
+				7024F1D01A9944BF005FAF5C /* Helpers */,
+				7024F1D11A9944D1005FAF5C /* Models */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
-				70E82D6E1A8DA99B00E73F54 /* AVCamPreviewView.h */,
-				70E82D6F1A8DA99B00E73F54 /* AVCamPreviewView.m */,
-				70E82D711A8DA9D400E73F54 /* AVCamViewController.h */,
-				70E82D721A8DA9D400E73F54 /* AVCamViewController.m */,
-				709D31A91A6D7DA900892038 /* SettingsViewController.h */,
-				709D31AA1A6D7DA900892038 /* SettingsViewController.m */,
-				709D31AC1A6D7E0600892038 /* LandingViewController.h */,
-				709D31AD1A6D7E0600892038 /* LandingViewController.m */,
+				7024F1D21A9944FA005FAF5C /* Views */,
+				7024F1CF1A99446A005FAF5C /* Controllers */,
 				709D31AF1A6D7E1200892038 /* CameraViewController.h */,
 				709D31B01A6D7E1200892038 /* CameraViewController.m */,
+				709D31A91A6D7DA900892038 /* SettingsViewController.h */,
+				709D31AA1A6D7DA900892038 /* SettingsViewController.m */,
 				7073C88D1A928742004805E3 /* Fonts */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D31801A6A399400892038 /* LaunchScreen.xib */,
@@ -290,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7024F1E41A999B4A005FAF5C /* AH_launch_6+.png in Resources */,
 				7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */,
 				7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */,
 				709D317D1A6A399400892038 /* Main.storyboard in Resources */,
@@ -357,8 +408,11 @@
 				709D31741A6A399400892038 /* main.m in Sources */,
 				70E82D731A8DA9D400E73F54 /* AVCamViewController.m in Sources */,
 				709D31B11A6D7E1200892038 /* CameraViewController.m in Sources */,
+				70E557A91A950DAF00A44594 /* SignsViewController.m in Sources */,
 				709D31AE1A6D7E0600892038 /* LandingViewController.m in Sources */,
 				709D31AB1A6D7DAA00892038 /* SettingsViewController.m in Sources */,
+				70E557A81A950DAF00A44594 /* SignsView.m in Sources */,
+				70E557A71A950DAF00A44594 /* SignsButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +535,7 @@
 			baseConfigurationReference = E2D09D33B2208B74F547F85C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,6 +547,7 @@
 			baseConfigurationReference = F0FE3F981EB21B6C69670D13 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -23,8 +23,9 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton *stillButton;
+@property (nonatomic, weak) IBOutlet UIButton *changeColor;
 
-- (IBAction)toggleMovieRecording:(id)sender;
+//- (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)changeCamera:(id)sender;
 - (IBAction)snapStillImage:(id)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
@@ -284,37 +285,37 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
 #pragma mark Actions
 
-- (IBAction)toggleMovieRecording:(id)sender
-{
-    [[self recordButton] setEnabled:NO];
-    
-    dispatch_async([self sessionQueue], ^{
-        if (![[self movieFileOutput] isRecording])
-        {
-            [self setLockInterfaceRotation:YES];
-            
-            if ([[UIDevice currentDevice] isMultitaskingSupported])
-            {
-                // Setup background task. This is needed because the captureOutput:didFinishRecordingToOutputFileAtURL: callback is not received until AVCam returns to the foreground unless you request background execution time. This also ensures that there will be time to write the file to the assets library when AVCam is backgrounded. To conclude this background execution, -endBackgroundTask is called in -recorder:recordingDidFinishToOutputFileURL:error: after the recorded file has been saved.
-                [self setBackgroundRecordingID:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
-            }
-            
-            // Update the orientation on the movie file output video connection before starting recording.
-            [[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
-            
-            // Turning OFF flash for video recording
-            [AVCamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
-            
-            // Start recording to a temporary file.
-            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
-            [[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
-        }
-        else
-        {
-            [[self movieFileOutput] stopRecording];
-        }
-    });
-}
+//- (IBAction)toggleMovieRecording:(id)sender
+//{
+//    [[self recordButton] setEnabled:NO];
+//    
+//    dispatch_async([self sessionQueue], ^{
+//        if (![[self movieFileOutput] isRecording])
+//        {
+//            [self setLockInterfaceRotation:YES];
+//            
+//            if ([[UIDevice currentDevice] isMultitaskingSupported])
+//            {
+//                // Setup background task. This is needed because the captureOutput:didFinishRecordingToOutputFileAtURL: callback is not received until AVCam returns to the foreground unless you request background execution time. This also ensures that there will be time to write the file to the assets library when AVCam is backgrounded. To conclude this background execution, -endBackgroundTask is called in -recorder:recordingDidFinishToOutputFileURL:error: after the recorded file has been saved.
+//                [self setBackgroundRecordingID:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
+//            }
+//            
+//            // Update the orientation on the movie file output video connection before starting recording.
+//            [[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
+//            
+//            // Turning OFF flash for video recording
+//            [AVCamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
+//            
+//            // Start recording to a temporary file.
+//            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
+//            [[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
+//        }
+//        else
+//        {
+//            [[self movieFileOutput] stopRecording];
+//        }
+//    });
+//}
 
 - (IBAction)changeCamera:(id)sender
 {
