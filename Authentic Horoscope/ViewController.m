@@ -27,10 +27,22 @@
 
 # pragma mark - helper methods
 - (void)loadPrediction {
-    [HoroscopeApi getPredictionsFor:@"02/18/15" withSuccessBlock:^(NSDictionary *responseObject) {
+    NSString *today = [self getFormattedDate];
+    [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject)
             [self showPrediction:responseObject];
     }];
+}
+- (NSString *)getFormattedDate {
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone localTimeZone];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"M/dd/yyyy"];
+    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
+
+    return localDateString;
 }
 
 - (void)showPrediction:(NSDictionary *)responseObject {

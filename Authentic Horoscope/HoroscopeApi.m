@@ -15,7 +15,8 @@
 + (void)getPredictionsFor:(NSString *)date withSuccessBlock:(responseSuccessBlock)successBlock {
 
     // Setup url
-    NSString *urlString = @"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=2/22/2015";
+    NSString *baseUrl = @"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=";
+    NSString *urlString = [baseUrl stringByAppendingString:date];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFHTTPResponseSerializer * responseSerializer = [AFHTTPResponseSerializer serializer];
