@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		196D3CE7D367730BB571CDBE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32093DB50556684CEB3E5F31 /* libPods.a */; };
 		7024F1E41A999B4A005FAF5C /* AH_launch_6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */; };
+		7024F1E71A9A4F17005FAF5C /* UserHoroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 7024F1E61A9A4F17005FAF5C /* UserHoroscope.m */; };
 		7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88E1A9287AD004805E3 /* Brandon_bld.otf */; };
 		7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88F1A9287AD004805E3 /* Brandon_blk.otf */; };
 		7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8901A9287AD004805E3 /* Brandon_light.otf */; };
@@ -47,6 +48,8 @@
 /* Begin PBXFileReference section */
 		32093DB50556684CEB3E5F31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AH_launch_6+.png"; sourceTree = "<group>"; };
+		7024F1E51A9A4F17005FAF5C /* UserHoroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHoroscope.h; sourceTree = "<group>"; };
+		7024F1E61A9A4F17005FAF5C /* UserHoroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHoroscope.m; sourceTree = "<group>"; };
 		7073C88E1A9287AD004805E3 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
 		7073C88F1A9287AD004805E3 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
 		7073C8901A9287AD004805E3 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				709D31A41A6B5B6200892038 /* XMLParser.m */,
 				709D319D1A6B1D3000892038 /* Horoscope.h */,
 				709D319E1A6B1D3100892038 /* Horoscope.m */,
+				7024F1E51A9A4F17005FAF5C /* UserHoroscope.h */,
+				7024F1E61A9A4F17005FAF5C /* UserHoroscope.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				709D31AB1A6D7DAA00892038 /* SettingsViewController.m in Sources */,
 				70E557A81A950DAF00A44594 /* SignsView.m in Sources */,
 				70E557A71A950DAF00A44594 /* SignsButtonView.m in Sources */,
+				7024F1E71A9A4F17005FAF5C /* UserHoroscope.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

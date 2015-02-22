@@ -11,6 +11,7 @@
 #import "Canvas.h"
 #import "HoroscopeApi.h"
 #import "Horoscope.h"
+#import "UserHoroscope.h"
 
 
 #define BUTTON_VIEW_TAG_INDEX 5000
@@ -28,12 +29,11 @@
 
     for (int i = 0; i < 12; i++) {
         SignsButtonView *signButtonView = (SignsButtonView *)[self.signsView viewWithTag:(BUTTON_VIEW_TAG_INDEX + i)];
-        [signButtonView.signButton addTarget:self action:@selector(signButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [signButtonView.signButton addTarget:self action:@selector(updateHoroscope:) forControlEvents:UIControlEventTouchUpInside];
     }
 
     self.view = self.signsView;
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -44,30 +44,22 @@
     }
 }
 
-
-- (void)signButtonAction:(UIButton *)button {
-    int tag = (int)button.tag - BUTTON_VIEW_TAG_INDEX;
+- (void)updateHoroscope:(UIButton *)button {
     SignsButtonView *signButtonView = (SignsButtonView *)[self.view viewWithTag:button.tag];
-    NSLog(@"Tapped index %i sign %@", tag, signButtonView.signLabel.text);
+    NSString *sign = signButtonView.signLabel.text;
+    NSLog(@"hit %@", sign);
 
     // Save selection to user defaults dict.
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:signButtonView.signLabel.text forKey:@"sign"];
+    [userDefaults setObject:sign forKey:@"sign"];
     [userDefaults synchronize];
-    [self showPrediction];
-}
-
-- (void)showPrediction {
     
-    NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
-
+    // Update user horoscope
     Horoscope *horoscope = [Horoscope sharedInstance];
     NSString *todayHoroscopeSnippet = [horoscope getSnippetForSign:sign];
-        
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:todayHoroscopeSnippet forKey:@"predictionSnippet"];
+    
+    UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
+    userHoroscope.snippetHoroscope = todayHoroscopeSnippet;
 }
-
-
 
 @end

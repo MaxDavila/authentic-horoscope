@@ -18,7 +18,7 @@
         _animationView = [[CSAnimationView alloc] init];
 //        _animationView.backgroundColor = [UIColor blackColor];
         _animationView.clipsToBounds = YES;
-        _animationView.duration = 0.7;
+        _animationView.duration = 0.5;
         _animationView.delay    = 0;
         _animationView.type     = CSAnimationTypeMorph;
         [_animationView startCanvasAnimation];

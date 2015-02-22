@@ -16,22 +16,21 @@
 
 - (instancetype)init
 {
-    _allSigns = [NSArray arrayWithObjects:@"Aries",
-                          @"Taurus",
-                          @"Gemini",
-                          @"Cancer",
-                          @"Leo",
-                          @"Virgo",
-                          @"Libra",
-                          @"Scorpio",
-                          @"Sagittarius",
-                          @"Capricorn",
-                          @"Aquarius",
-                          @"Pisces",nil];
-
-
     self = [super init];
     if (self) {
+        _allSigns = [NSArray arrayWithObjects:@"Aries",
+                     @"Taurus",
+                     @"Gemini",
+                     @"Cancer",
+                     @"Leo",
+                     @"Virgo",
+                     @"Libra",
+                     @"Scorpio",
+                     @"Sagittarius",
+                     @"Capricorn",
+                     @"Aquarius",
+                     @"Pisces",nil];
+
         self.backgroundColor = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
         
         _titleLabel = [[UILabel alloc] init];

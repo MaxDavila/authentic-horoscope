@@ -16,11 +16,14 @@
 }
 
 + (Horoscope *)sharedInstance {
-    static Horoscope *singletonInstance = nil;
-    if (singletonInstance == nil) {
-        singletonInstance = [[super alloc] init];
-    }
-    return singletonInstance;
+    static Horoscope *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[Horoscope alloc] init];
+    });
+
+    return _sharedInstance;
 }
 
 - (void)loadData:(NSDictionary *)data {

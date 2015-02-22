@@ -7,6 +7,7 @@
 //
 
 #import "LandingViewController.h"
+#import "UserHoroscope.h"
 
 @interface LandingViewController ()
 
@@ -18,15 +19,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.snippetPredictionLabel.text = self.snippetText;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"yoooo");
     [super viewWillAppear:animated];
-    NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
     
-    self.snippetPredictionLabel.text = predictionSnippet;
     
+    UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
+    if (userHoroscope.snippetHoroscope) {
+        self.snippetPredictionLabel.text = userHoroscope.snippetHoroscope;
+    }
+    else {
+        self.snippetPredictionLabel.text = @"Go set your sign son!";
+    }
 }
 @end

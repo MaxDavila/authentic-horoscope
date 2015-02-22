@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "LandingViewController.h"
+#import "UserHoroscope.h"
 
 @interface ViewController () <UIPageViewControllerDataSource>
 
@@ -18,6 +19,7 @@
 
 @implementation ViewController {
     NSArray *myViewControllers;
+    
 }
 
 - (void)viewDidLoad {
@@ -52,12 +54,9 @@
         // Load singleton Horoscope instance from response object
         Horoscope *horoscope = [Horoscope sharedInstance];
         [horoscope loadData:responseObject];
-
-        self.todayHoroscope = [horoscope getSnippetForSign:sign];
         
-        // Store the snippet prediction to be accessed later
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:self.todayHoroscope forKey:@"predictionSnippet"];
+        UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
+        userHoroscope.snippetHoroscope = [horoscope getHoroscopeForSign:sign];
     }
     else {
         self.todayHoroscope = @"Go set your sign!";
@@ -113,17 +112,9 @@
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     NSString *identifier = myViewControllers[index];
-    NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
-
-    if ([identifier  isEqualToString:@"LandingViewController"]) {
-        LandingViewController *viewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        viewcontroller.snippetText = predictionSnippet;
-        return viewcontroller;
-    }
-    else {
-        UIViewController *viewController = [self.storyboard
+    UIViewController *viewController = [self.storyboard
                                             instantiateViewControllerWithIdentifier:identifier];
-        return viewController;
-    }
+    return viewController;
+
 }
 @end

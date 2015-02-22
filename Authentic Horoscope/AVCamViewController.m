@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AVCamPreviewView.h"
+#import "UserHoroscope.h"
 
 static void * CapturingStillImageContext = &CapturingStillImageContext;
 static void * RecordingContext = &RecordingContext;
@@ -48,7 +49,9 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
 @end
 
-@implementation AVCamViewController
+@implementation AVCamViewController {
+    UserHoroscope *userHoroscope;
+}
 
 //@synthesize scanningLabel;
 
@@ -100,11 +103,11 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     // Draw the text label on the videoplayer view
 //    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
 //    UIFont *font = [UIFont boldSystemFontOfSize:60];
-    NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
-
+    
 //    [self.predictionLabel setFont:font];
 //    [self.predictionLabel setTextColor:textColor];
-    [self.predictionLabel setText:predictionSnippet];
+    userHoroscope = [UserHoroscope sharedInstance];
+    [self.predictionLabel setText:userHoroscope.snippetHoroscope];
     
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
@@ -392,8 +395,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
 
                 // Draw text over image
-                NSString *predictionSnippet = [[NSUserDefaults standardUserDefaults] objectForKey:@"predictionSnippet"];
-                UIImage *img = [AVCamViewController drawText:predictionSnippet
+                UIImage *img = [AVCamViewController drawText:userHoroscope.snippetHoroscope
                                             inImage:image
                                             atPoint:CGPointMake(50, 50)];
 
