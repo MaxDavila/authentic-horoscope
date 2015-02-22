@@ -48,15 +48,14 @@
 }
 
 - (void)showPrediction:(NSDictionary *)responseObject {
-    
+    // Load singleton Horoscope instance from response object
+    Horoscope *horoscope = [Horoscope sharedInstance];
+    [horoscope loadData:responseObject];
+
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
-        // Load singleton Horoscope instance from response object
-        Horoscope *horoscope = [Horoscope sharedInstance];
-        [horoscope loadData:responseObject];
-        
         UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
-        userHoroscope.snippetHoroscope = [horoscope getHoroscopeForSign:sign];
+        userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
     }
     else {
         self.todayHoroscope = @"Go set your sign!";
