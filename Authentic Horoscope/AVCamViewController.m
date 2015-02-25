@@ -64,23 +64,84 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 {
     return [NSSet setWithObjects:@"session.running", @"deviceAuthorized", nil];
 }
-
+// different stating font size and scale factor - .10f
 -(UIImage*)drawText:(NSString*) text
             inImage:(UIImage*)  image
-            atPoint:(CGPoint)   point
 {
     UIColor *textColor = self.predictionLabel.textColor;
-    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:180.0];
-    NSDictionary *att = @{NSFontAttributeName:font, NSForegroundColorAttributeName: textColor};
-    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+
+    float fontSize = 180.0f;
+    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
+    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
+    
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0, [text length])];
+    [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
+    
+    CGSize imageSize = CGSizeMake(image.size.width , CGFLOAT_MAX);
+    CGRect stringRect = [attributedString boundingRectWithSize:imageSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
+
+    while (image.size.height - (image.size.height / 2) <= stringRect.size.height) {
+        fontSize = fontSize - fontSize * .01f;
+        
+        font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
+        paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
+        
+        [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
+        
+        stringRect = [attributedString boundingRectWithSize:imageSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
+        NSLog(@"rect height: %f width: %f", ceilf(stringRect.size.height), ceilf(stringRect.size.width));
+        NSLog(@"VIEW height: %f width: %f", image.size.height, image.size.width);
+        NSLog(@"font Size: %f", fontSize);
+    }
+   
+    CGFloat yOrigin = (image.size.height - stringRect.size.height) / 2;
+    CGRect rect = CGRectMake(30.0, yOrigin, image.size.width - 60.0, image.size.height);
 
     UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    [text drawInRect:rect withAttributes:att];
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [attributedString drawInRect:rect];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (NSAttributedString *)buildAttributedStringfromText:(NSString *)text
+                                       withAttributes:(NSDictionary *)attributes
+                                          toFitInSize:(CGSize)boundingViewSize
+                                          scaleFactor:(float)scaleFactor {
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributedString addAttributes:attributes range:NSMakeRange(0, [text length])];
+    
+    CGSize rect = CGSizeMake(boundingViewSize.width, CGFLOAT_MAX);
+    CGRect stringRect = [attributedString boundingRectWithSize:rect options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
+    
+    // Get current font size
+    UIFont *font = attributes[NSFontAttributeName];
+    UIFontDescriptor *fontProperties = font.fontDescriptor;
+    NSNumber *sizeNumber = fontProperties.fontAttributes[UIFontDescriptorSizeAttribute];
+    float fontSize = [sizeNumber floatValue];
+    
+    NSMutableParagraphStyle *paragraphStyle = attributes[NSParagraphStyleAttributeName];
+    
+    while (boundingViewSize.height <= stringRect.size.height) {
+        fontSize = fontSize * scaleFactor;
+        
+        font = [font fontWithSize:fontSize];
+        paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
+        
+        [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
+        
+        stringRect = [attributedString boundingRectWithSize:rect options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
+        
+    }
+    return attributedString;
 }
 
 - (void)viewDidLoad
@@ -101,14 +162,30 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
     
     // Draw the text label on the videoplayer view
-//    UIColor *textColor = [UIColor colorWithRed:(26.0/255.0) green:(188.0/255.0) blue:(156.0/255.0) alpha:1.0];
-//    UIFont *font = [UIFont boldSystemFontOfSize:60];
-    
-//    [self.predictionLabel setFont:font];
-//    [self.predictionLabel setTextColor:textColor];
     userHoroscope = [UserHoroscope sharedInstance];
-    [self.predictionLabel setText:userHoroscope.snippetHoroscope];
+
+    NSString *text = userHoroscope.snippetHoroscope;
     
+    UIColor *textColor = [UIColor whiteColor];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    float fontSize = 60.0f;
+    
+    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
+    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
+    
+    NSDictionary *attributes = @{NSForegroundColorAttributeName: textColor,
+                                 NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSFontAttributeName: font};
+
+    CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width - 60, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
+    float scaleFactor = .99f;
+    NSAttributedString *attrString = [self buildAttributedStringfromText:text
+                                                          withAttributes:attributes
+                                                             toFitInSize:boundingViewSize
+                                                             scaleFactor:scaleFactor];
+    
+    self.predictionLabel.attributedText = attrString;
+
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
     // -[AVCaptureSession startRunning] is a blocking call which can take a long time. We dispatch session setup to the sessionQueue so that the main queue isn't blocked (which keeps the UI responsive).
@@ -395,9 +472,8 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
 
                 // Draw text over image
-                UIImage *img = [self drawText:userHoroscope.snippetHoroscope
-                                            inImage:image
-                                            atPoint:CGPointMake(30, 30)];
+                UIImage *img = [self drawText:@"Always remember that you are unique. Just like everyone else"
+                                      inImage:image];
 
                 [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[img CGImage] orientation:(ALAssetOrientation)[img imageOrientation] completionBlock:nil];
             }

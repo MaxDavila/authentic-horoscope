@@ -25,6 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPrediction];
+    
+    // offline
+//    UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
+//    userHoroscope.snippetHoroscope = @"Always remember that you are unique. Just like everyone else.";
+//    [self setupViewControllers];
+
 }
 
 # pragma mark - helper methods
