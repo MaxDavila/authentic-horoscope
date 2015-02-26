@@ -10,6 +10,7 @@
 		196D3CE7D367730BB571CDBE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32093DB50556684CEB3E5F31 /* libPods.a */; };
 		7024F1E41A999B4A005FAF5C /* AH_launch_6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */; };
 		7024F1E71A9A4F17005FAF5C /* UserHoroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 7024F1E61A9A4F17005FAF5C /* UserHoroscope.m */; };
+		702D703C1A9F0A840025C9D5 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 702D703B1A9F0A840025C9D5 /* AppManager.m */; };
 		7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88E1A9287AD004805E3 /* Brandon_bld.otf */; };
 		7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C88F1A9287AD004805E3 /* Brandon_blk.otf */; };
 		7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7073C8901A9287AD004805E3 /* Brandon_light.otf */; };
@@ -50,6 +51,8 @@
 		7024F1E31A999B4A005FAF5C /* AH_launch_6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AH_launch_6+.png"; sourceTree = "<group>"; };
 		7024F1E51A9A4F17005FAF5C /* UserHoroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHoroscope.h; sourceTree = "<group>"; };
 		7024F1E61A9A4F17005FAF5C /* UserHoroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHoroscope.m; sourceTree = "<group>"; };
+		702D703A1A9F0A840025C9D5 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		702D703B1A9F0A840025C9D5 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		7073C88E1A9287AD004805E3 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
 		7073C88F1A9287AD004805E3 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
 		7073C8901A9287AD004805E3 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
@@ -164,6 +167,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		702D703D1A9F0A910025C9D5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				702D703A1A9F0A840025C9D5 /* AppManager.h */,
+				702D703B1A9F0A840025C9D5 /* AppManager.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		7073C88D1A928742004805E3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,9 +215,9 @@
 			children = (
 				709D31751A6A399400892038 /* AppDelegate.h */,
 				709D31761A6A399400892038 /* AppDelegate.m */,
+				702D703D1A9F0A910025C9D5 /* App */,
 				7024F1D01A9944BF005FAF5C /* Helpers */,
 				7024F1D11A9944D1005FAF5C /* Models */,
-				709D317B1A6A399400892038 /* Main.storyboard */,
 				7024F1D21A9944FA005FAF5C /* Views */,
 				7024F1CF1A99446A005FAF5C /* Controllers */,
 				709D31AF1A6D7E1200892038 /* CameraViewController.h */,
@@ -214,6 +226,7 @@
 				709D31AA1A6D7DA900892038 /* SettingsViewController.m */,
 				7073C88D1A928742004805E3 /* Fonts */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
+				709D317B1A6A399400892038 /* Main.storyboard */,
 				709D31801A6A399400892038 /* LaunchScreen.xib */,
 				709D31711A6A399400892038 /* Supporting Files */,
 			);
@@ -407,6 +420,7 @@
 				709D31BA1A6E29FE00892038 /* HoroscopeApi.m in Sources */,
 				709D319F1A6B1D3100892038 /* Horoscope.m in Sources */,
 				709D317A1A6A399400892038 /* ViewController.m in Sources */,
+				702D703C1A9F0A840025C9D5 /* AppManager.m in Sources */,
 				709D31771A6A399400892038 /* AppDelegate.m in Sources */,
 				70E82D701A8DA99B00E73F54 /* AVCamPreviewView.m in Sources */,
 				709D31A51A6B5B6200892038 /* XMLParser.m in Sources */,

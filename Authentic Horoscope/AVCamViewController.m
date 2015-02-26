@@ -12,6 +12,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AVCamPreviewView.h"
 #import "UserHoroscope.h"
+#import "AppManager.h"
 
 static void * CapturingStillImageContext = &CapturingStillImageContext;
 static void * RecordingContext = &RecordingContext;
@@ -64,85 +65,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 {
     return [NSSet setWithObjects:@"session.running", @"deviceAuthorized", nil];
 }
-// different stating font size and scale factor - .10f
--(UIImage*)drawText:(NSString*) text
-            inImage:(UIImage*)  image
-{
-    UIColor *textColor = self.predictionLabel.textColor;
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-
-    float fontSize = 180.0f;
-    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
-    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
-    
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
-    [attributedString addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0, [text length])];
-    [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
-    
-    CGSize imageSize = CGSizeMake(image.size.width , CGFLOAT_MAX);
-    CGRect stringRect = [attributedString boundingRectWithSize:imageSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
-
-    while (image.size.height - (image.size.height / 2) <= stringRect.size.height) {
-        fontSize = fontSize - fontSize * .01f;
-        
-        font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
-        paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
-        
-        [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
-        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
-        
-        stringRect = [attributedString boundingRectWithSize:imageSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
-        NSLog(@"rect height: %f width: %f", ceilf(stringRect.size.height), ceilf(stringRect.size.width));
-        NSLog(@"VIEW height: %f width: %f", image.size.height, image.size.width);
-        NSLog(@"font Size: %f", fontSize);
-    }
-   
-    CGFloat yOrigin = (image.size.height - stringRect.size.height) / 2;
-    CGRect rect = CGRectMake(30.0, yOrigin, image.size.width - 60.0, image.size.height);
-
-    UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
-    [attributedString drawInRect:rect];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
-- (NSAttributedString *)buildAttributedStringfromText:(NSString *)text
-                                       withAttributes:(NSDictionary *)attributes
-                                          toFitInSize:(CGSize)boundingViewSize
-                                          scaleFactor:(float)scaleFactor {
-    
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-    [attributedString addAttributes:attributes range:NSMakeRange(0, [text length])];
-    
-    CGSize rect = CGSizeMake(boundingViewSize.width, CGFLOAT_MAX);
-    CGRect stringRect = [attributedString boundingRectWithSize:rect options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
-    
-    // Get current font size
-    UIFont *font = attributes[NSFontAttributeName];
-    UIFontDescriptor *fontProperties = font.fontDescriptor;
-    NSNumber *sizeNumber = fontProperties.fontAttributes[UIFontDescriptorSizeAttribute];
-    float fontSize = [sizeNumber floatValue];
-    
-    NSMutableParagraphStyle *paragraphStyle = attributes[NSParagraphStyleAttributeName];
-    
-    while (boundingViewSize.height <= stringRect.size.height) {
-        fontSize = fontSize * scaleFactor;
-        
-        font = [font fontWithSize:fontSize];
-        paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
-        
-        [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [text length])];
-        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
-        
-        stringRect = [attributedString boundingRectWithSize:rect options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
-        
-    }
-    return attributedString;
-}
 
 - (void)viewDidLoad
 {
@@ -168,7 +90,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     
     UIColor *textColor = [UIColor whiteColor];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    float fontSize = 60.0f;
+    float fontSize = 120.0f;
     
     UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
     paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
@@ -177,9 +99,9 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                                  NSParagraphStyleAttributeName: paragraphStyle,
                                  NSFontAttributeName: font};
 
-    CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width - 60, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
+    CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
     float scaleFactor = .99f;
-    NSAttributedString *attrString = [self buildAttributedStringfromText:text
+    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:text
                                                           withAttributes:attributes
                                                              toFitInSize:boundingViewSize
                                                              scaleFactor:scaleFactor];
@@ -472,8 +394,9 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
 
                 // Draw text over image
-                UIImage *img = [self drawText:@"Always remember that you are unique. Just like everyone else"
-                                      inImage:image];
+                UIImage *img = [AppManager drawText:userHoroscope.snippetHoroscope
+                                      inImage:image
+                                    withColor:self.predictionLabel.textColor];
 
                 [[[ALAssetsLibrary alloc] init] writeImageToSavedPhotosAlbum:[img CGImage] orientation:(ALAssetOrientation)[img imageOrientation] completionBlock:nil];
             }
