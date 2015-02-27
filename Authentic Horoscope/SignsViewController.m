@@ -60,6 +60,7 @@
 
     userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
     userHoroscope.fullHoroscope = [horoscope getHoroscopeForSign:sign];
+    userHoroscope.sign = sign;
 
 }
 

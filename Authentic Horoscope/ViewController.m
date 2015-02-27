@@ -63,6 +63,7 @@
         UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
         userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
         userHoroscope.fullHoroscope = [horoscope getHoroscopeForSign:sign];
+        userHoroscope.sign = sign;
     }
     
     [self setupViewControllers];

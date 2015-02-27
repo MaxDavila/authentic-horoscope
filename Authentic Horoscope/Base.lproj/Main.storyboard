@@ -63,45 +63,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eba-iT-Cw8">
-                                <rect key="frame" x="16" y="20" width="568" height="502"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eba-iT-Cw8" userLabel="Full Horoscope">
+                                <rect key="frame" x="16" y="90" width="568" height="442"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC">
-                                <rect key="frame" x="16" y="20" width="568" height="502"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="yo" translatesAutoresizingMaskIntoConstraints="NO" id="xQH-C0-fA6" userLabel="Sign Image White">
+                                <rect key="frame" x="16" y="540" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="i45-f4-6Pk"/>
+                                    <constraint firstAttribute="width" constant="40" id="yKe-yS-9hk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC" userLabel="Snippet Horoscope">
+                                <rect key="frame" x="16" y="20" width="568" height="512"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                 <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ">
-                                <rect key="frame" x="16" y="530" width="50" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-2p-1If" userLabel="Sign">
+                                <rect key="frame" x="16" y="20" width="568" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="9HS-gv-vM0"/>
-                                    <constraint firstAttribute="height" constant="50" id="Vhe-ml-mRQ"/>
+                                    <constraint firstAttribute="height" constant="62" id="Tdz-2M-Vor"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ" userLabel="Sign Image Black">
+                                <rect key="frame" x="16" y="540" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="C00-ZM-Ra2"/>
+                                    <constraint firstAttribute="width" constant="40" id="rid-89-9Ux"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="eba-iT-Cw8" secondAttribute="trailing" id="CYh-Oy-7JW"/>
-                            <constraint firstAttribute="bottom" secondItem="gss-iW-guQ" secondAttribute="bottom" constant="20" symbolic="YES" id="GpR-rb-Bm3"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="top" id="NDo-ds-YOR"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="TIw-aX-4F4"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="Yat-pp-GVt"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="bottom" constant="8" symbolic="YES" id="h66-Db-790"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="eba-iT-Cw8" secondAttribute="bottom" constant="8" symbolic="YES" id="inT-g9-Md6"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="kAS-ec-dp6"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="leading" secondItem="MVb-1P-3fC" secondAttribute="leading" id="kQD-Ua-mGd"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="leading" secondItem="eba-iT-Cw8" secondAttribute="leading" id="krM-vF-5KP"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="leading" secondItem="xQH-C0-fA6" secondAttribute="leading" id="Cw3-ql-Aqi"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="trailing" secondItem="od8-2p-1If" secondAttribute="trailing" id="D6W-4m-0aD"/>
+                            <constraint firstItem="od8-2p-1If" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="RVQ-Oe-12E"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="od8-2p-1If" secondAttribute="bottom" constant="8" symbolic="YES" id="TOr-ef-BDQ"/>
+                            <constraint firstItem="od8-2p-1If" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="TTU-pr-4To"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="Uhx-mE-cgp"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="leading" secondItem="MVb-1P-3fC" secondAttribute="leading" id="WtU-Rk-8dS"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="xQH-C0-fA6" secondAttribute="top" id="aCR-0E-WRi"/>
+                            <constraint firstItem="xQH-C0-fA6" firstAttribute="top" secondItem="eba-iT-Cw8" secondAttribute="bottom" constant="8" symbolic="YES" id="b5y-RN-L55"/>
+                            <constraint firstItem="xQH-C0-fA6" firstAttribute="leading" secondItem="eba-iT-Cw8" secondAttribute="leading" id="buN-5y-g8h"/>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="eti-99-Fzl"/>
+                            <constraint firstAttribute="bottom" secondItem="gss-iW-guQ" secondAttribute="bottom" constant="20" symbolic="YES" id="fZj-DQ-EkT"/>
+                            <constraint firstItem="xQH-C0-fA6" firstAttribute="trailing" secondItem="gss-iW-guQ" secondAttribute="trailing" id="fdg-tA-rKC"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="leading" secondItem="od8-2p-1If" secondAttribute="leading" id="ge6-bg-GKs"/>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="eba-iT-Cw8" secondAttribute="trailing" id="ipt-2H-kPE"/>
+                            <constraint firstItem="xQH-C0-fA6" firstAttribute="bottom" secondItem="gss-iW-guQ" secondAttribute="bottom" id="j7T-MG-g8a"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="bottom" constant="8" symbolic="YES" id="o2M-ZT-wK1"/>
+                            <constraint firstItem="od8-2p-1If" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="top" id="xX2-lj-MX7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="FullPredictionLabel" destination="eba-iT-Cw8" id="6um-iK-AtI"/>
+                        <outlet property="signImageBlack" destination="gss-iW-guQ" id="d1S-8a-jSe"/>
+                        <outlet property="signImageWhite" destination="xQH-C0-fA6" id="yXr-Bt-XaF"/>
+                        <outlet property="signTitleLabel" destination="od8-2p-1If" id="otm-Wn-lbd"/>
                         <outlet property="snippetPredictionLabel" destination="MVb-1P-3fC" id="pPb-el-1Sg"/>
                     </connections>
                 </viewController>
