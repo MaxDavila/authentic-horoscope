@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -62,22 +63,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eba-iT-Cw8">
+                                <rect key="frame" x="16" y="20" width="568" height="502"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC">
-                                <rect key="frame" x="16" y="20" width="568" height="560"/>
+                                <rect key="frame" x="16" y="20" width="568" height="502"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
-                                <color key="textColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ">
+                                <rect key="frame" x="16" y="530" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9HS-gv-vM0"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vhe-ml-mRQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="0eC-g6-MKm"/>
-                            <constraint firstAttribute="bottom" secondItem="MVb-1P-3fC" secondAttribute="bottom" constant="20" symbolic="YES" id="KhY-fc-D80"/>
-                            <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="Qg9-2z-23B"/>
-                            <constraint firstItem="MVb-1P-3fC" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="k9M-Hc-OFB"/>
+                            <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="eba-iT-Cw8" secondAttribute="trailing" id="CYh-Oy-7JW"/>
+                            <constraint firstAttribute="bottom" secondItem="gss-iW-guQ" secondAttribute="bottom" constant="20" symbolic="YES" id="GpR-rb-Bm3"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="top" id="NDo-ds-YOR"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="TIw-aX-4F4"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="Yat-pp-GVt"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="MVb-1P-3fC" secondAttribute="bottom" constant="8" symbolic="YES" id="h66-Db-790"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="eba-iT-Cw8" secondAttribute="bottom" constant="8" symbolic="YES" id="inT-g9-Md6"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="kAS-ec-dp6"/>
+                            <constraint firstItem="eba-iT-Cw8" firstAttribute="leading" secondItem="MVb-1P-3fC" secondAttribute="leading" id="kQD-Ua-mGd"/>
+                            <constraint firstItem="gss-iW-guQ" firstAttribute="leading" secondItem="eba-iT-Cw8" secondAttribute="leading" id="krM-vF-5KP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="FullPredictionLabel" destination="eba-iT-Cw8" id="6um-iK-AtI"/>
                         <outlet property="snippetPredictionLabel" destination="MVb-1P-3fC" id="pPb-el-1Sg"/>
                     </connections>
                 </viewController>
@@ -162,7 +186,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0090731521490000008" green="0.64801897320000001" blue="0.38053135240000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="whl-6f-8l5" secondAttribute="trailing" constant="20" symbolic="YES" id="2S9-Vr-15O"/>
                                     <constraint firstItem="hNa-qg-XWr" firstAttribute="leading" secondItem="ELb-fw-w0J" secondAttribute="leading" constant="20" symbolic="YES" id="Dpz-nW-PYl"/>

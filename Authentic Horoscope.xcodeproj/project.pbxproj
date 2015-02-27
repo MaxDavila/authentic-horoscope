@@ -21,7 +21,6 @@
 		709D317A1A6A399400892038 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31791A6A399400892038 /* ViewController.m */; };
 		709D317D1A6A399400892038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 709D317B1A6A399400892038 /* Main.storyboard */; };
 		709D317F1A6A399400892038 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709D317E1A6A399400892038 /* Images.xcassets */; };
-		709D31821A6A399400892038 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709D31801A6A399400892038 /* LaunchScreen.xib */; };
 		709D318E1A6A399400892038 /* Authentic_HoroscopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */; };
 		709D319F1A6B1D3100892038 /* Horoscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D319E1A6B1D3100892038 /* Horoscope.m */; };
 		709D31A51A6B5B6200892038 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 709D31A41A6B5B6200892038 /* XMLParser.m */; };
@@ -67,7 +66,6 @@
 		709D31791A6A399400892038 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		709D317C1A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		709D317E1A6A399400892038 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		709D31811A6A399400892038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		709D31871A6A399400892038 /* Authentic HoroscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authentic HoroscopeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		709D318C1A6A399400892038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authentic_HoroscopeTests.m; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				7073C88D1A928742004805E3 /* Fonts */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
-				709D31801A6A399400892038 /* LaunchScreen.xib */,
 				709D31711A6A399400892038 /* Supporting Files */,
 			);
 			path = "Authentic Horoscope";
@@ -362,7 +359,6 @@
 				7073C8941A9287AD004805E3 /* Brandon_blk.otf in Resources */,
 				7073C8951A9287AD004805E3 /* Brandon_light.otf in Resources */,
 				709D317D1A6A399400892038 /* Main.storyboard in Resources */,
-				709D31821A6A399400892038 /* LaunchScreen.xib in Resources */,
 				709D317F1A6A399400892038 /* Images.xcassets in Resources */,
 				7073C8961A9287AD004805E3 /* Brandon_med.otf in Resources */,
 				7073C8931A9287AD004805E3 /* Brandon_bld.otf in Resources */,
@@ -463,14 +459,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		709D31801A6A399400892038 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				709D31811A6A399400892038 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -557,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -569,6 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Authentic Horoscope/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

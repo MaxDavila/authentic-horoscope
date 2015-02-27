@@ -52,6 +52,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
 @implementation AVCamViewController {
     UserHoroscope *userHoroscope;
+    NSString *labelText;
 }
 
 //@synthesize scanningLabel;
@@ -86,7 +87,12 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     // Draw the text label on the videoplayer view
     userHoroscope = [UserHoroscope sharedInstance];
 
-    NSString *text = userHoroscope.snippetHoroscope;
+    if (userHoroscope.snippetHoroscope) {
+        labelText = userHoroscope.snippetHoroscope;
+    }
+    else {
+        labelText = userHoroscope.setSignPrompt;
+    }
     
     UIColor *textColor = [UIColor whiteColor];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -101,7 +107,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
     CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
     float scaleFactor = .99f;
-    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:text
+    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:labelText
                                                           withAttributes:attributes
                                                              toFitInSize:boundingViewSize
                                                              scaleFactor:scaleFactor];

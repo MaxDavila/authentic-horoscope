@@ -13,5 +13,5 @@
 +(UserHoroscope *)sharedInstance;
 @property(nonatomic, weak) NSString *snippetHoroscope;
 @property(nonatomic, weak) NSString *fullHoroscope;
-
+@property(nonatomic, weak, readonly) NSString *setSignPrompt;
 @end

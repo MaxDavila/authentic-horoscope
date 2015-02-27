@@ -20,4 +20,13 @@
     
     return _sharedInstance;
 }
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        _setSignPrompt = @"Swipe right to set your sign son!";
+    }
+    return self;
+}
+
 @end
