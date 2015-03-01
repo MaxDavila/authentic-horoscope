@@ -47,7 +47,7 @@
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"M/dd/yyyy"];
+    [dateFormatter setDateFormat:@"M/d/yyyy"];
     NSString *localDateString = [dateFormatter stringFromDate:currentDate];
 
     return localDateString;
