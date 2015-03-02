@@ -190,8 +190,6 @@
 		709D31651A6A399400892038 = {
 			isa = PBXGroup;
 			children = (
-				70F537401AA3E2730080CB49 /* negative-sentences.txt */,
-				70F5373E1AA3D7F30080CB49 /* positive-sentences.txt */,
 				709D31A21A6B327500892038 /* Podfile */,
 				709D31701A6A399400892038 /* Authentic Horoscope */,
 				709D318A1A6A399400892038 /* Authentic HoroscopeTests */,
@@ -221,6 +219,7 @@
 				7024F1D21A9944FA005FAF5C /* Views */,
 				7024F1CF1A99446A005FAF5C /* Controllers */,
 				7073C88D1A928742004805E3 /* Fonts */,
+				70F537421AA3E63A0080CB49 /* Horoscope Dictionaries */,
 				709D317E1A6A399400892038 /* Images.xcassets */,
 				709D317B1A6A399400892038 /* Main.storyboard */,
 				709D31711A6A399400892038 /* Supporting Files */,
@@ -252,6 +251,16 @@
 				709D318C1A6A399400892038 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70F537421AA3E63A0080CB49 /* Horoscope Dictionaries */ = {
+			isa = PBXGroup;
+			children = (
+				70F537401AA3E2730080CB49 /* negative-sentences.txt */,
+				70F5373E1AA3D7F30080CB49 /* positive-sentences.txt */,
+			);
+			name = "Horoscope Dictionaries";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B64234B65F6E85AB2494B4CD /* Pods */ = {

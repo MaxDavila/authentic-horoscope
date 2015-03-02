@@ -72,7 +72,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="yo" translatesAutoresizingMaskIntoConstraints="NO" id="xQH-C0-fA6" userLabel="Sign Image White">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="yo" translatesAutoresizingMaskIntoConstraints="NO" id="xQH-C0-fA6" userLabel="Sign Image White">
                                 <rect key="frame" x="16" y="540" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="i45-f4-6Pk"/>
@@ -97,7 +97,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Black"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ" userLabel="Sign Image Black">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ" userLabel="Sign Image Black">
                                 <rect key="frame" x="16" y="540" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="C00-ZM-Ra2"/>

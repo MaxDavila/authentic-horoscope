@@ -47,7 +47,9 @@
 - (void)updateHoroscope:(UIButton *)button {
     SignsButtonView *signButtonView = (SignsButtonView *)[self.view viewWithTag:button.tag];
     NSString *sign = signButtonView.signLabel.text;
-    NSLog(@"hit %@", sign);
+    
+    // animate
+    [signButtonView.animationView startCanvasAnimation];
 
     // Save selection to user defaults dict.
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
