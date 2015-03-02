@@ -10,7 +10,7 @@
 
 @interface Horoscope : NSObject
 
-- (NSString *)getSnippetForSign:(NSString *)sign;
+- (NSDictionary *)getSnippetForSign:(NSString *)sign;
 - (NSString *)getHoroscopeForSign:(NSString *)sign;
 
 - (void)loadData:(NSDictionary *)data;

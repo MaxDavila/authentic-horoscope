@@ -11,7 +11,7 @@
 @interface UserHoroscope : NSObject
 
 +(UserHoroscope *)sharedInstance;
-@property(nonatomic, strong) NSString *snippetHoroscope;
+@property(nonatomic, strong) NSDictionary *snippetHoroscope;
 @property(nonatomic, strong) NSString *fullHoroscope;
 @property(nonatomic, strong) NSString *sign;
 @property(nonatomic, strong, readonly) NSString *setSignPrompt;

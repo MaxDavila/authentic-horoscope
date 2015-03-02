@@ -88,7 +88,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     userHoroscope = [UserHoroscope sharedInstance];
 
     if (userHoroscope.snippetHoroscope) {
-        labelText = userHoroscope.snippetHoroscope;
+        labelText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
     }
     else {
         labelText = userHoroscope.setSignPrompt;
@@ -107,7 +107,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
     CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
     float scaleFactor = .99f;
-    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:labelText
+    NSMutableAttributedString *attrString = [AppManager buildAttributedStringfromText:labelText
                                                           withAttributes:attributes
                                                              toFitInSize:boundingViewSize
                                                              scaleFactor:scaleFactor];
@@ -400,7 +400,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
 
                 // Draw text over image
-                UIImage *img = [AppManager drawText:userHoroscope.snippetHoroscope
+                UIImage *img = [AppManager drawText:[userHoroscope.snippetHoroscope objectForKey:@"value"]
                                       inImage:image
                                     withColor:self.predictionLabel.textColor];
 

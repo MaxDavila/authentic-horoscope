@@ -77,11 +77,11 @@
 
     UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
     if (userHoroscope.snippetHoroscope) {
-        labelSnippetText = userHoroscope.snippetHoroscope;
+        labelSnippetText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
         labelFulltText = userHoroscope.fullHoroscope;
         textColor = [UIColor colorWithRed:0.260 green:0.260 blue:0.260 alpha:1.000];
         NSLog(@"sign: %@", userHoroscope.sign);
-        NSLog(@"sign: %@", userHoroscope.snippetHoroscope);
+        NSLog(@"sign: %@", [userHoroscope.snippetHoroscope objectForKey:@"value"]);
         NSLog(@"sign: %@", userHoroscope.fullHoroscope);
         
         UIImage *blackSign = [UIImage imageNamed:[userHoroscope.sign stringByAppendingString:@"_icon_black_only"]];
@@ -107,10 +107,16 @@
                                  NSFontAttributeName: font};
     CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - (self.view.bounds.size.height / 2)));
     float scaleFactor = .99f;
-    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:labelSnippetText
+    NSMutableAttributedString *attrString = [AppManager buildAttributedStringfromText:labelSnippetText
                                                           withAttributes:attributes
                                                              toFitInSize:boundingViewSize
                                                              scaleFactor:scaleFactor];
+    
+    if (userHoroscope.snippetHoroscope) {
+        NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
+        [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];
+    }
+    
     self.snippetPredictionLabel.attributedText = attrString;
     self.fullPredictionLabel.text = labelFulltText;
 }

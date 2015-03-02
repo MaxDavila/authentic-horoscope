@@ -21,14 +21,14 @@
     return _sharedManager;
 }
 
-+ (NSAttributedString *)buildAttributedStringfromText:(NSString *)text
++ (NSMutableAttributedString *)buildAttributedStringfromText:(NSString *)text
                                        withAttributes:(NSDictionary *)attributes
                                           toFitInSize:(CGSize)desiredBoundingSize
                                           scaleFactor:(float)scaleFactor {
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
     [attributedString addAttributes:attributes range:NSMakeRange(0, [text length])];
-    
+
     // Get size of attributed string with the current font size
     CGSize maxSize = CGSizeMake(desiredBoundingSize.width, CGFLOAT_MAX);
     CGRect stringRect = [attributedString boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) context:nil];
@@ -75,7 +75,7 @@
     
     CGSize boundingViewSize = CGSizeMake(image.size.width * .90f, (image.size.height - image.size.height / 2));
     float scaleFactor = .90f;
-    NSAttributedString *attrString = [AppManager buildAttributedStringfromText:text
+    NSMutableAttributedString *attrString = [AppManager buildAttributedStringfromText:text
                                                                 withAttributes:attributes
                                                                    toFitInSize:boundingViewSize
                                                                    scaleFactor:scaleFactor];
