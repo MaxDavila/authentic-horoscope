@@ -25,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPrediction];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPrediction)
+     
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
     
     // offline
 //    UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
@@ -37,8 +40,11 @@
 - (void)loadPrediction {
     NSString *today = [self getFormattedDate];
     [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
-        if (responseObject)
-            [self showPrediction:responseObject];
+        if (responseObject) {
+            // Load singleton Horoscope instance from response object
+            [[Horoscope sharedInstance] loadData:responseObject];
+            [self showPrediction];
+        }
     }];
 }
 - (NSString *)getFormattedDate {
@@ -53,10 +59,10 @@
     return localDateString;
 }
 
-- (void)showPrediction:(NSDictionary *)responseObject {
+- (void)showPrediction {
+
     // Load singleton Horoscope instance from response object
     Horoscope *horoscope = [Horoscope sharedInstance];
-    [horoscope loadData:responseObject];
 
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
