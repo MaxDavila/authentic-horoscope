@@ -25,7 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPrediction];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPrediction)
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadViewControllers)
      
                                                  name:UIApplicationWillEnterForegroundNotification object:nil];
     
@@ -37,6 +38,30 @@
 }
 
 # pragma mark - helper methods
+- (NSString *)getFormattedDate {
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone localTimeZone];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"M/d/yyyy"];
+    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
+    
+    return localDateString;
+}
+
+- (void)reloadViewControllers {
+    [self storePrediction];
+    
+    // Rrmove view and child viewcontrollers
+    [self.pageViewController willMoveToParentViewController:nil];
+    [self.pageViewController.view removeFromSuperview];
+    [self.pageViewController removeFromParentViewController];
+    
+    [self setupViewControllers];
+}
+
+
 - (void)loadPrediction {
     NSString *today = [self getFormattedDate];
     [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
@@ -47,23 +72,16 @@
         }
     }];
 }
-- (NSString *)getFormattedDate {
-    NSDate *currentDate = [[NSDate alloc] init];
-    NSTimeZone *timeZone = [NSTimeZone localTimeZone];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"M/d/yyyy"];
-    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
-
-    return localDateString;
-}
 
 - (void)showPrediction {
+    [self storePrediction];
+    [self setupViewControllers];
+}
 
+- (void)storePrediction {
     // Load singleton Horoscope instance from response object
     Horoscope *horoscope = [Horoscope sharedInstance];
-
+    
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
         UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
@@ -71,9 +89,6 @@
         userHoroscope.fullHoroscope = [horoscope getHoroscopeForSign:sign];
         userHoroscope.sign = sign;
     }
-    
-    [self setupViewControllers];
-    
 }
 
 - (void)setupViewControllers {
@@ -90,6 +105,7 @@
                                      completion:nil];
     
     [self addChildViewController:_pageViewController];
+    
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
 

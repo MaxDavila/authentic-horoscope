@@ -73,6 +73,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"view will appear");
     [super viewWillAppear:animated];
 
     UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
