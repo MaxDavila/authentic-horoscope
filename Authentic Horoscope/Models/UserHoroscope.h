@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Horoscope.h"
 
 @interface UserHoroscope : NSObject
 
 +(UserHoroscope *)sharedInstance;
+-(void)update:(Horoscope *)horoscope forSign:(NSString *)sign;
+
 @property(nonatomic, strong) NSDictionary *snippetHoroscope;
 @property(nonatomic, strong) NSString *fullHoroscope;
 @property(nonatomic, strong) NSString *sign;

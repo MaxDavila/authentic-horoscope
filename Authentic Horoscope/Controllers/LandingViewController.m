@@ -73,7 +73,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"view will appear");
     [super viewWillAppear:animated];
 
     UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
@@ -81,9 +80,6 @@
         labelSnippetText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
         labelFulltText = userHoroscope.fullHoroscope;
         textColor = [UIColor colorWithRed:0.260 green:0.260 blue:0.260 alpha:1.000];
-        NSLog(@"sign: %@", userHoroscope.sign);
-        NSLog(@"sign: %@", [userHoroscope.snippetHoroscope objectForKey:@"value"]);
-        NSLog(@"sign: %@", userHoroscope.fullHoroscope);
         
         UIImage *blackSign = [UIImage imageNamed:[userHoroscope.sign stringByAppendingString:@"_icon_black_only"]];
         self.signImageBlack.image = blackSign;

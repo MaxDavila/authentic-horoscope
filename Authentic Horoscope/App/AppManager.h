@@ -17,4 +17,5 @@
                                       withAttributes:(NSDictionary *)attributes
                                          toFitInSize:(CGSize)boundingViewSize
                                          scaleFactor:(float)scaleFactor;
++(NSString *)getFormattedDate;
 @end

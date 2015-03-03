@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "LandingViewController.h"
 #import "UserHoroscope.h"
+#import "AppManager.h"
 
 @interface ViewController () <UIPageViewControllerDataSource>
 
@@ -38,22 +39,10 @@
 }
 
 # pragma mark - helper methods
-- (NSString *)getFormattedDate {
-    NSDate *currentDate = [[NSDate alloc] init];
-    NSTimeZone *timeZone = [NSTimeZone localTimeZone];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"M/d/yyyy"];
-    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
-    
-    return localDateString;
-}
-
 - (void)reloadViewControllers {
     [self storePrediction];
     
-    // Rrmove view and child viewcontrollers
+    // Remove view and child viewcontrollers
     [self.pageViewController willMoveToParentViewController:nil];
     [self.pageViewController.view removeFromSuperview];
     [self.pageViewController removeFromParentViewController];
@@ -63,7 +52,7 @@
 
 
 - (void)loadPrediction {
-    NSString *today = [self getFormattedDate];
+    NSString *today = [AppManager getFormattedDate];
     [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject) {
             // Load singleton Horoscope instance from response object
@@ -84,10 +73,7 @@
     
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
-        UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
-        userHoroscope.snippetHoroscope = [horoscope getSnippetForSign:sign];
-        userHoroscope.fullHoroscope = [horoscope getHoroscopeForSign:sign];
-        userHoroscope.sign = sign;
+        [[UserHoroscope sharedInstance] update:horoscope forSign:sign];
     }
 }
 

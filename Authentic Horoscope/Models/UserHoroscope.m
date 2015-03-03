@@ -10,7 +10,7 @@
 
 @implementation UserHoroscope
 
-+(UserHoroscope *)sharedInstance {
++ (UserHoroscope *)sharedInstance {
     static UserHoroscope *_sharedInstance;
     static dispatch_once_t oncePredicate;
     
@@ -21,12 +21,18 @@
     return _sharedInstance;
 }
 
--(instancetype)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _setSignPrompt = @"Swipe right to set your sign son!";
     }
     return self;
+}
+
+- (void)update:(Horoscope *)horoscope forSign:(NSString *)sign {
+    self.snippetHoroscope = [horoscope getSnippetForSign:sign];
+    self.fullHoroscope = [horoscope getHoroscopeForSign:sign];
+    self.sign = sign;
 }
 
 @end

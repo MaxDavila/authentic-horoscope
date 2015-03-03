@@ -94,4 +94,16 @@
     
     return newImage;
 }
+
++ (NSString *)getFormattedDate {
+    NSDate *currentDate = [[NSDate alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone localTimeZone];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"M/d/yyyy"];
+    NSString *localDateString = [dateFormatter stringFromDate:currentDate];
+    
+    return localDateString;
+}
 @end
