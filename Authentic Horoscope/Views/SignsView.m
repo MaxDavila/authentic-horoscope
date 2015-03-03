@@ -34,7 +34,7 @@
         self.backgroundColor = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
         
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"Hurry up and pick a sign";
+        _titleLabel.text = @"Hurry up and pick a sign:";
         _titleLabel.numberOfLines = 1;
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.fontName = @"BrandonGrotesque-Bold";
@@ -54,11 +54,9 @@
         [self addSubview:_creditsView];
         
         _creditsLabel = [[UILabel alloc] init];
-        _creditsLabel.text = @"Made with so much hate in California by Max & Micaela";
+        _creditsLabel.text = @"Made by Max & Micaela";
         _creditsLabel.numberOfLines = 1;
         _creditsLabel.textColor = [UIColor blackColor];
-//        _creditsLabel.backgroundColor = [UIColor redColor];
-
         _creditsLabel.fontName = @"BrandonGrotesque-Medium";
         _creditsLabel.adjustsFontSizeToFitWidth = YES;
         _creditsLabel.minimumScaleFactor = 0.5f;

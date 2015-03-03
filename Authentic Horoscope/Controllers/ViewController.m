@@ -20,7 +20,6 @@
 
 @implementation ViewController {
     NSArray *myViewControllers;
-    
 }
 
 - (void)viewDidLoad {
@@ -49,7 +48,6 @@
     
     [self setupViewControllers];
 }
-
 
 - (void)loadPrediction {
     NSString *today = [AppManager getFormattedDate];

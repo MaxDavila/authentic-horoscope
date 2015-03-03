@@ -23,7 +23,7 @@
     
     // Start parsing.
     [self.xmlParser parse];
-    
+
     return self.dataStorage;
 
 }
@@ -87,9 +87,10 @@
     // Stream the current string if we found the desired element.
     if ([self.currentElement isEqualToString:@"title"] ||
         [self.currentElement isEqualToString:@"description"]) {
-        
+
         if (![string isEqualToString:@"\n"]) {
-            [self.foundValue appendString:string];
+            NSString * newString = [string stringByReplacingOccurrencesOfString:@"`" withString:@"'"];
+            [self.foundValue appendString:newString];
         }
     }
 }

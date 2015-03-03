@@ -106,8 +106,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="MVb-1P-3fC" firstAttribute="centerY" secondItem="0W3-bb-H1X" secondAttribute="centerY" id="B0g-DQ-fIM"/>
-                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="0W3-bb-H1X" secondAttribute="top" constant="20" id="HFZ-02-vEf"/>
-                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="leading" secondItem="0W3-bb-H1X" secondAttribute="leading" constant="20" id="JcF-36-gzR"/>
+                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="0W3-bb-H1X" secondAttribute="top" constant="20" symbolic="YES" id="HFZ-02-vEf"/>
+                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="leading" secondItem="0W3-bb-H1X" secondAttribute="leading" constant="20" symbolic="YES" id="JcF-36-gzR"/>
                                     <constraint firstItem="MVb-1P-3fC" firstAttribute="centerX" secondItem="0W3-bb-H1X" secondAttribute="centerX" id="f0s-e5-H7s"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

@@ -33,7 +33,11 @@
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(handleSingleTap:)];
+    UILongPressGestureRecognizer *longPress =
+    [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
+    [self.view addGestureRecognizer:longPress];
     self.fullPredictionLabel.alpha = 0;
     self.signImageWhite.alpha = 0;
     self.signTitleLabel.alpha = 0;
