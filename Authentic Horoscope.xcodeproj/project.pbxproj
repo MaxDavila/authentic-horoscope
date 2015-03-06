@@ -70,7 +70,7 @@
 		709D318D1A6A399400892038 /* Authentic_HoroscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authentic_HoroscopeTests.m; sourceTree = "<group>"; };
 		709D319D1A6B1D3000892038 /* Horoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Horoscope.h; sourceTree = "<group>"; };
 		709D319E1A6B1D3100892038 /* Horoscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Horoscope.m; sourceTree = "<group>"; };
-		709D31A21A6B327500892038 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		709D31A21A6B327500892038 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		709D31A31A6B5B6200892038 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		709D31A41A6B5B6200892038 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		709D31AC1A6D7E0600892038 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
@@ -331,6 +331,7 @@
 				TargetAttributes = {
 					709D316D1A6A399400892038 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = XJFBF8ELXY;
 					};
 					709D31861A6A399400892038 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -552,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Authentic Horoscope/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -565,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Authentic Horoscope/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

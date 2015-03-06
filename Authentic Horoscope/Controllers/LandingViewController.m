@@ -96,8 +96,8 @@
         labelFulltText = @"";
         textColor = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
     }
+
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     float fontSize = 120.0f;
     UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
 
@@ -117,7 +117,6 @@
         NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
         [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];
     }
-    
     self.snippetPredictionLabel.attributedText = attrString;
     self.fullPredictionLabel.text = labelFulltText;
 }

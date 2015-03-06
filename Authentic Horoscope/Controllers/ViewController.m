@@ -11,6 +11,7 @@
 #import "LandingViewController.h"
 #import "UserHoroscope.h"
 #import "AppManager.h"
+#import <Reachability/Reachability.h>
 
 @interface ViewController () <UIPageViewControllerDataSource>
 
@@ -20,32 +21,43 @@
 
 @implementation ViewController {
     NSArray *myViewControllers;
+    UserHoroscope *userHoroscope;
+    AppManager *app;
+    Horoscope *horoscope;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPrediction];
+    userHoroscope = [UserHoroscope sharedInstance];
+    app = [AppManager sharedManager];
+    horoscope = [Horoscope sharedInstance];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadViewControllers)
-     
-                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-    // offline
-//    UserHoroscope *userHoroscope = [UserHoroscope sharedInstance];
-//    userHoroscope.snippetHoroscope = @"Always remember that you are unique. Just like everyone else.";
-//    [self setupViewControllers];
-
+    [self checkConnectivity];
 }
 
 # pragma mark - helper methods
-- (void)reloadViewControllers {
+
+- (void)checkConnectivity {
+    [AppManager checkConnectivity:^(void) {
+        app.isOnline = true;
+        [self showOnlinePrediction];
+    } failureBlock:^(void) {
+        app.isOnline = false;
+        [self showOfflinePrediction];
+    }];
+}
+- (void)showOnlinePrediction {
+    [self loadPrediction];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadViewControllers)
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+- (void)showOfflinePrediction {
+    userHoroscope.snippetHoroscope = [horoscope getOfflinePrediction];
+    [self setupViewControllers];
+}
+
+- (void)loadViewControllers {
     [self storePrediction];
-    
-    // Remove view and child viewcontrollers
-    [self.pageViewController willMoveToParentViewController:nil];
-    [self.pageViewController.view removeFromSuperview];
-    [self.pageViewController removeFromParentViewController];
-    
     [self setupViewControllers];
 }
 
@@ -54,28 +66,25 @@
     [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject) {
             // Load singleton Horoscope instance from response object
-            [[Horoscope sharedInstance] loadData:responseObject];
-            [self showPrediction];
+            [horoscope loadData:responseObject];
+            [self loadViewControllers];
         }
     }];
 }
 
-- (void)showPrediction {
-    [self storePrediction];
-    [self setupViewControllers];
-}
-
 - (void)storePrediction {
-    // Load singleton Horoscope instance from response object
-    Horoscope *horoscope = [Horoscope sharedInstance];
-    
     NSString *sign = [[NSUserDefaults standardUserDefaults] objectForKey:@"sign"];
     if (sign) {
-        [[UserHoroscope sharedInstance] update:horoscope forSign:sign];
+        [userHoroscope update:horoscope forSign:sign];
     }
 }
 
 - (void)setupViewControllers {
+    // First remove previous views and child viewcontrollers
+    [self.pageViewController willMoveToParentViewController:nil];
+    [self.pageViewController.view removeFromSuperview];
+    [self.pageViewController removeFromParentViewController];
+    
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;

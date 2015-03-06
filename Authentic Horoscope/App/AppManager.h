@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void (^successBlock)();
+typedef void (^failureBlock)();
+
 @interface AppManager : NSObject
 
 +(AppManager *)sharedManager;
@@ -18,4 +21,7 @@
                                          toFitInSize:(CGSize)boundingViewSize
                                          scaleFactor:(float)scaleFactor;
 +(NSString *)getFormattedDate;
+
++ (void)checkConnectivity:(successBlock)successBlock failureBlock:(failureBlock)failureBlock;
+@property (nonatomic, assign) BOOL isOnline;
 @end

@@ -14,5 +14,6 @@
 - (NSString *)getHoroscopeForSign:(NSString *)sign;
 
 - (void)loadData:(NSDictionary *)data;
+- (NSDictionary *)getOfflinePrediction;
 + (Horoscope *) sharedInstance;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppManager.h"
+#import <Reachability/Reachability.h>
 
 @implementation AppManager
 
@@ -19,6 +20,29 @@
     });
 
     return _sharedManager;
+}
+
++ (void)checkConnectivity:(successBlock)successBlock failureBlock:(failureBlock)failureBlock {
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Yayyy, we have the interwebs!");
+            successBlock();
+        });
+    };
+    
+    // Internet is not reachable
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Someone broke the internet!");
+            failureBlock();
+        });
+    };
+    [reach startNotifier];
 }
 
 + (NSMutableAttributedString *)buildAttributedStringfromText:(NSString *)text

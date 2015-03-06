@@ -114,6 +114,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     
     self.predictionLabel.attributedText = attrString;
 
+
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
     // -[AVCaptureSession startRunning] is a blocking call which can take a long time. We dispatch session setup to the sessionQueue so that the main queue isn't blocked (which keeps the UI responsive).

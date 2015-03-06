@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "90D45D0AA78FA763AE0B31A9"
+               BlueprintIdentifier = "44BB1AE9EF442B37B779730B"
                BuildableName = "libPods-SKPolygraph.a"
                BlueprintName = "Pods-SKPolygraph"
                ReferencedContainer = "container:Pods.xcodeproj">

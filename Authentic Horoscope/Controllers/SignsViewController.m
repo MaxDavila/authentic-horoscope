@@ -12,6 +12,7 @@
 #import "HoroscopeApi.h"
 #import "Horoscope.h"
 #import "UserHoroscope.h"
+#import "AppManager.h"
 
 
 #define BUTTON_VIEW_TAG_INDEX 5000
@@ -26,13 +27,9 @@
 
 - (void)loadView {
     self.signsView = [[SignsView alloc] init];
-
-    for (int i = 0; i < 12; i++) {
-        SignsButtonView *signButtonView = (SignsButtonView *)[self.signsView viewWithTag:(BUTTON_VIEW_TAG_INDEX + i)];
-        [signButtonView.signButton addTarget:self action:@selector(updateHoroscope:) forControlEvents:UIControlEventTouchUpInside];
-    }
-
     self.view = self.signsView;
+
+    if ([AppManager sharedManager].isOnline) [self wireUpButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,6 +38,14 @@
     for (int i = 0; i < 12; i++) {
         SignsButtonView *signButtonView = (SignsButtonView *)[self.signsView viewWithTag:(BUTTON_VIEW_TAG_INDEX + i)];
         [signButtonView.animationView startCanvasAnimation];
+    }
+}
+
+# pragma mark - helper methods
+- (void)wireUpButtons {
+    for (int i = 0; i < 12; i++) {
+        SignsButtonView *signButtonView = (SignsButtonView *)[self.signsView viewWithTag:(BUTTON_VIEW_TAG_INDEX + i)];
+        [signButtonView.signButton addTarget:self action:@selector(updateHoroscope:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 

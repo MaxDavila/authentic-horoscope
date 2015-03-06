@@ -57,6 +57,12 @@
     return [_data objectForKey:sign];
 }
 
+- (NSDictionary *)getOfflinePrediction {
+    NSDictionary *offlinePrediction = @{@"value": @"Someone broke the internet :(",
+                                        @"highlightedWord": @"broke"};
+    return offlinePrediction;
+}
+
 
 - (NSArray*)loadDictionaryFromFile:(NSString*)filename {
     
