@@ -48,16 +48,10 @@
 }
 - (void)showOnlinePrediction {
     [self loadPrediction];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadViewControllers)
-                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
+    [self registerObserversOnce];
 }
 - (void)showOfflinePrediction {
     userHoroscope.snippetHoroscope = [horoscope getOfflinePrediction];
-    [self setupViewControllers];
-}
-
-- (void)loadViewControllers {
-    [self storePrediction];
     [self setupViewControllers];
 }
 
@@ -70,6 +64,12 @@
             [self loadViewControllers];
         }
     }];
+}
+
+- (void)loadViewControllers {
+    NSLog(@"hit from loadviewcontroller");
+    [self storePrediction];
+    [self setupViewControllers];
 }
 
 - (void)storePrediction {
@@ -102,6 +102,12 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
 
+}
+
+- (void)registerObserversOnce {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadViewControllers)
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 #pragma mark - Page View Controller Data Source methods
