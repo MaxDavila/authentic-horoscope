@@ -12,7 +12,7 @@
 
 @implementation HoroscopeApi
 
-+ (void)getPredictionsFor:(NSString *)date withSuccessBlock:(responseSuccessBlock)successBlock {
++ (void)getPredictionsFor:(NSString *)date withSuccessBlock:(responseSuccessBlock)successBlock withFailureBlock:(failureBlockWithError)failureBlock {
 
     // Setup url
     NSString *baseUrl = @"http://www.findyourfate.com/rss/horoscope-astrology-feed.asp?mode=view&todate=";
@@ -26,8 +26,15 @@
         NSDictionary *parsedResponse = [XMLParser getParsedResponse:responseObject];
 
         successBlock(parsedResponse);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *err) {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: @"There was an error getting your Authentic Horoscope.",
+                                   NSLocalizedFailureReasonErrorKey: err.localizedDescription,
+                                   NSLocalizedRecoverySuggestionErrorKey: @"Please try again in a few minutes."};
+        
+        NSError *error = [NSError errorWithDomain:@"HoroscopeApiErrorDomain"
+                                             code:1010
+                                         userInfo:userInfo];
+        failureBlock(error);
     }];
 }
 @end

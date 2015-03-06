@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^responseSuccessBlock)(NSDictionary *responseObject);
+typedef void (^failureBlockWithError)(NSError *error);
 
 @interface HoroscopeApi : NSObject
 
-+ (void)getPredictionsFor:(NSString *)date withSuccessBlock:(responseSuccessBlock)successBlock;
++ (void)getPredictionsFor:(NSString *)date withSuccessBlock:(responseSuccessBlock)successBlock withFailureBlock:(failureBlockWithError)failureBlock;
+
 @end

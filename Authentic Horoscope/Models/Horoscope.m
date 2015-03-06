@@ -26,11 +26,25 @@
     return _sharedInstance;
 }
 
-- (void)loadData:(NSDictionary *)data {
-    _data = data;
-    _positiveSentences = [self loadDictionaryFromFile:@"positive-sentences"];
-    _negativeSentences = [self loadDictionaryFromFile:@"negative-sentences"];
+- (void)loadData:(NSDictionary *)data withSuccessBlock:(successBlock)successBlock withFailureBlock:(failureBlockWithError)failureBlock {
 
+    // Check if we get full horoscope from the API
+    if ([data count] > 12) {
+        _data = data;
+        _positiveSentences = [self loadDictionaryFromFile:@"positive-sentences"];
+        _negativeSentences = [self loadDictionaryFromFile:@"negative-sentences"];
+        successBlock();
+    }
+    else {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: @"There was an error getting your Authentic Horoscope.",
+                                   NSLocalizedFailureReasonErrorKey: @"API data is corrupted.",
+                                   NSLocalizedRecoverySuggestionErrorKey: @"Have you tried turning it off and on again?"};
+        
+        NSError *error = [NSError errorWithDomain:@"HoroscopeErrorDomain"
+                                             code:1000
+                                         userInfo:userInfo];
+        failureBlock(error);
+    }
 }
 
 - (NSDictionary *)getSnippetForSign:(NSString *)sign {
@@ -63,6 +77,7 @@
     return offlinePrediction;
 }
 
+# pragma mark - file parsing
 
 - (NSArray*)loadDictionaryFromFile:(NSString*)filename {
     

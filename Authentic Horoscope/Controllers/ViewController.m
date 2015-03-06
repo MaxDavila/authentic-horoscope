@@ -46,10 +46,12 @@
         [self showOfflinePrediction];
     }];
 }
+
 - (void)showOnlinePrediction {
     [self loadPrediction];
     [self registerObserversOnce];
 }
+
 - (void)showOfflinePrediction {
     userHoroscope.snippetHoroscope = [horoscope getOfflinePrediction];
     [self setupViewControllers];
@@ -60,14 +62,26 @@
     [HoroscopeApi getPredictionsFor:today withSuccessBlock:^(NSDictionary *responseObject) {
         if (responseObject) {
             // Load singleton Horoscope instance from response object
-            [horoscope loadData:responseObject];
-            [self loadViewControllers];
+            [horoscope loadData:responseObject withSuccessBlock:^(void){
+                [self loadViewControllers];
+            } withFailureBlock:^(NSError *error) {
+                [self showErrorAlert:error];
+            }];
         }
+    } withFailureBlock:^(NSError *error) {
+        [self showErrorAlert:error];
     }];
 }
 
+- (void) showErrorAlert:(NSError *)error {
+    [[[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                message:error.localizedRecoverySuggestion
+                               delegate:nil
+                      cancelButtonTitle:NSLocalizedString(@"Mmmkay", nil)
+                      otherButtonTitles:nil, nil] show];
+}
+
 - (void)loadViewControllers {
-    NSLog(@"hit from loadviewcontroller");
     [self storePrediction];
     [self setupViewControllers];
 }
