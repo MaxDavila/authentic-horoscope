@@ -14,7 +14,7 @@
     static UserHoroscope *_sharedInstance;
     static dispatch_once_t oncePredicate;
     
-    dispatch_once(&oncePredicate, ^{
+    dispatch_once(&oncePredicate, ^ {
         _sharedInstance = [[UserHoroscope alloc] init];
     });
     

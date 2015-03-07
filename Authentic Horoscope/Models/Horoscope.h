@@ -16,7 +16,6 @@ typedef void (^failureBlockWithError)(NSError *error);
 - (NSDictionary *)getSnippetForSign:(NSString *)sign;
 - (NSString *)getHoroscopeForSign:(NSString *)sign;
 
-- (void)loadData:(NSDictionary *)data;
 - (void)loadData:(NSDictionary *)data withSuccessBlock:(successBlock)successBlock withFailureBlock:(failureBlockWithError)failureBlock;
 
 - (NSDictionary *)getOfflinePrediction;
