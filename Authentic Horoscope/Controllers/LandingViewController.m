@@ -24,7 +24,7 @@
     NSString *labelSnippetText;
     NSString *labelFulltText;
     UIColor *textColor;
-
+    NSMutableAttributedString *attrString;
 }
 
 - (void)viewDidLoad {
@@ -47,6 +47,9 @@
     [super viewDidLayoutSubviews];
     self.signTitleLabel.frame = CGRectMake(self.fullPredictionLabel.frame.origin.x, self.fullPredictionLabel.frame.origin.y - 25.0f, self.fullPredictionLabel.frame.size.width, 25.0f);
 
+    // Constrains animation view to standard width spacing 40.f relative to superview
+    UIView *animationView = self.snippetPredictionLabel.superview;
+    animationView.frame = CGRectMake(animationView.frame.origin.x, animationView.frame.origin.y, animationView.superview.frame.size.width - 40.f, animationView.frame.size.height);
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
@@ -97,10 +100,22 @@
         textColor = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
     }
 
+    attrString = [self buildLabelString];
+    if (userHoroscope.snippetHoroscope) {
+        NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
+        [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];
+    }
+
+    self.snippetPredictionLabel.attributedText = attrString;
+    self.fullPredictionLabel.text = labelFulltText;
+
+}
+
+- (NSMutableAttributedString *)buildLabelString {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     float fontSize = 120.0f;
     UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
-
+    
     paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
     
     NSDictionary *attributes = @{NSForegroundColorAttributeName: textColor,
@@ -108,17 +123,10 @@
                                  NSFontAttributeName: font};
     CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - (self.view.bounds.size.height / 2)));
     float scaleFactor = .99f;
-    NSMutableAttributedString *attrString = [AppManager buildAttributedStringfromText:labelSnippetText
-                                                          withAttributes:attributes
-                                                             toFitInSize:boundingViewSize
-                                                             scaleFactor:scaleFactor];
-    
-    if (userHoroscope.snippetHoroscope) {
-        NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
-        [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];
-    }
-    self.snippetPredictionLabel.attributedText = attrString;
-    self.fullPredictionLabel.text = labelFulltText;
+    return [AppManager buildAttributedStringfromText:labelSnippetText
+                                      withAttributes:attributes
+                                         toFitInSize:boundingViewSize
+                                         scaleFactor:scaleFactor];
 }
 
 @end

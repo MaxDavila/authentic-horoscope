@@ -111,9 +111,8 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
                                                           withAttributes:attributes
                                                              toFitInSize:boundingViewSize
                                                              scaleFactor:scaleFactor];
-    
     self.predictionLabel.attributedText = attrString;
-
+    self.predictionLabel.backgroundColor = [UIColor redColor];
 
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
