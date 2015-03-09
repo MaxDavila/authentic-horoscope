@@ -25,14 +25,23 @@
     self = [super init];
     if (self) {
         _setSignPrompt = @"Swipe right to set your sign son!";
+        _changed = NO;
     }
     return self;
 }
 
 - (void)update:(Horoscope *)horoscope forSign:(NSString *)sign {
-    self.snippetHoroscope = [horoscope getSnippetForSign:sign];
-    self.fullHoroscope = [horoscope getHoroscopeForSign:sign];
-    self.sign = sign;
+    if ([sign isEqualToString:@"offline"]) {
+        self.snippetHoroscope = [horoscope getOfflinePrediction];
+        self.fullHoroscope = @"";
+        self.sign = @"";
+    }
+    else {
+        self.snippetHoroscope = [horoscope getSnippetForSign:sign];
+        self.fullHoroscope = [horoscope getHoroscopeForSign:sign];
+        self.sign = sign;
+    }
+    self.changed = YES;
 }
 
 @end

@@ -32,6 +32,7 @@
     app = [AppManager sharedManager];
     horoscope = [Horoscope sharedInstance];
 
+//    [self showOfflinePrediction];
     [self checkConnectivity];
 }
 
@@ -53,7 +54,7 @@
 }
 
 - (void)showOfflinePrediction {
-    userHoroscope.snippetHoroscope = [horoscope getOfflinePrediction];
+    [userHoroscope update:horoscope forSign:@"offline"];
     [self setupViewControllers];
 }
 

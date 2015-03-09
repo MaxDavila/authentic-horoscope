@@ -18,4 +18,6 @@
 @property(nonatomic, strong) NSString *fullHoroscope;
 @property(nonatomic, strong) NSString *sign;
 @property(nonatomic, strong, readonly) NSString *setSignPrompt;
+@property (nonatomic, assign) BOOL changed;
+
 @end

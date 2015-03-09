@@ -52,107 +52,22 @@
             <point key="canvasLocation" x="-421" y="583"/>
         </scene>
         <!--Landing View Controller-->
-        <scene sceneID="RLM-y2-LtC">
+        <scene sceneID="N7x-uu-7j6">
             <objects>
-                <viewController storyboardIdentifier="LandingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iUE-5g-r1O" customClass="LandingViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LandingViewController" storyboardIdentifier="LandingViewController" id="tlr-g9-ZG7" customClass="LandingViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tL8-C0-5fR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y7O-az-561"/>
+                        <viewControllerLayoutGuide type="top" id="HAb-fX-qix"/>
+                        <viewControllerLayoutGuide type="bottom" id="VP0-iM-KgV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yEb-NY-tmc">
+                    <view key="view" contentMode="scaleToFill" id="oZo-Rv-aIw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eba-iT-Cw8" userLabel="Full Horoscope">
-                                <rect key="frame" x="16" y="90" width="568" height="442"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Bold"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="yo" translatesAutoresizingMaskIntoConstraints="NO" id="xQH-C0-fA6" userLabel="Sign Image White">
-                                <rect key="frame" x="16" y="540" width="40" height="40"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-2p-1If" userLabel="Sign">
-                                <rect key="frame" x="16" y="20" width="568" height="62"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="0FO-1N-VgR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="fontName" value="BrandonGrotesque-Black"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gss-iW-guQ" userLabel="Sign Image Black">
-                                <rect key="frame" x="16" y="540" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="5bB-GI-QgN"/>
-                                    <constraint firstAttribute="width" constant="40" id="dLw-Uo-0P9"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0W3-bb-H1X" customClass="CSAnimationView">
-                                <rect key="frame" x="16" y="20" width="568" height="512"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-1P-3fC" userLabel="Snippet Horoscope">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="512"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
-                                        <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="MVb-1P-3fC" secondAttribute="bottom" id="5Sj-7E-ICF"/>
-                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="trailing" secondItem="0W3-bb-H1X" secondAttribute="trailingMargin" id="S3H-2E-hNf"/>
-                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="top" secondItem="0W3-bb-H1X" secondAttribute="top" id="WbO-bd-6RM"/>
-                                    <constraint firstItem="MVb-1P-3fC" firstAttribute="leading" secondItem="0W3-bb-H1X" secondAttribute="leading" id="YPJ-ZN-c3H"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="fadeInUp"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="od8-2p-1If" firstAttribute="top" secondItem="0W3-bb-H1X" secondAttribute="top" id="0GN-gv-6vH"/>
-                            <constraint firstItem="0W3-bb-H1X" firstAttribute="trailing" secondItem="yEb-NY-tmc" secondAttribute="trailingMargin" id="3JB-su-vfE"/>
-                            <constraint firstItem="od8-2p-1If" firstAttribute="trailing" secondItem="eba-iT-Cw8" secondAttribute="trailing" id="4k5-aA-dcm"/>
-                            <constraint firstItem="xQH-C0-fA6" firstAttribute="leading" secondItem="gss-iW-guQ" secondAttribute="leading" id="Dnw-B8-tfX"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="trailing" secondItem="xQH-C0-fA6" secondAttribute="trailing" id="EPQ-DF-XTg"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="0W3-bb-H1X" secondAttribute="bottom" constant="8" symbolic="YES" id="Hwo-Ht-r8z"/>
-                            <constraint firstAttribute="bottom" secondItem="xQH-C0-fA6" secondAttribute="bottom" constant="20" symbolic="YES" id="MXz-Vr-6R7"/>
-                            <constraint firstItem="0W3-bb-H1X" firstAttribute="trailing" secondItem="eba-iT-Cw8" secondAttribute="trailing" id="TT3-7h-1WC"/>
-                            <constraint firstItem="gss-iW-guQ" firstAttribute="top" secondItem="eba-iT-Cw8" secondAttribute="bottom" constant="8" symbolic="YES" id="VkN-1w-rrd"/>
-                            <constraint firstItem="xQH-C0-fA6" firstAttribute="bottom" secondItem="gss-iW-guQ" secondAttribute="bottom" id="YYB-Zk-8sa"/>
-                            <constraint firstItem="od8-2p-1If" firstAttribute="top" secondItem="tL8-C0-5fR" secondAttribute="bottom" id="e2C-R8-UZI"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="top" secondItem="od8-2p-1If" secondAttribute="bottom" constant="8" symbolic="YES" id="j4L-sE-hIn"/>
-                            <constraint firstItem="xQH-C0-fA6" firstAttribute="top" secondItem="gss-iW-guQ" secondAttribute="top" id="l1P-eQ-F58"/>
-                            <constraint firstItem="od8-2p-1If" firstAttribute="leading" secondItem="eba-iT-Cw8" secondAttribute="leading" id="mjD-c3-3TB"/>
-                            <constraint firstItem="0W3-bb-H1X" firstAttribute="leading" secondItem="od8-2p-1If" secondAttribute="leading" id="sJE-yP-boK"/>
-                            <constraint firstItem="xQH-C0-fA6" firstAttribute="leading" secondItem="eba-iT-Cw8" secondAttribute="leading" id="uDX-Bg-Lpf"/>
-                            <constraint firstItem="eba-iT-Cw8" firstAttribute="leading" secondItem="yEb-NY-tmc" secondAttribute="leadingMargin" id="whv-Kk-YTf"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="FullPredictionLabel" destination="eba-iT-Cw8" id="6um-iK-AtI"/>
-                        <outlet property="signImageBlack" destination="gss-iW-guQ" id="d1S-8a-jSe"/>
-                        <outlet property="signImageWhite" destination="xQH-C0-fA6" id="yXr-Bt-XaF"/>
-                        <outlet property="signTitleLabel" destination="od8-2p-1If" id="otm-Wn-lbd"/>
-                        <outlet property="snippetPredictionLabel" destination="MVb-1P-3fC" id="pPb-el-1Sg"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HrO-ym-cu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="awQ-84-aqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="583"/>
+            <point key="canvasLocation" x="244" y="583"/>
         </scene>
         <!--Cam View Controller-->
         <scene sceneID="Cp3-Hu-LCC">

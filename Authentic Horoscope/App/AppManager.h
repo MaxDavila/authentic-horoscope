@@ -21,7 +21,9 @@ typedef void (^failureBlock)();
                                          toFitInSize:(CGSize)boundingViewSize
                                          scaleFactor:(float)scaleFactor;
 +(NSString *)getFormattedDate;
++(void)checkConnectivity:(successBlock)successBlock failureBlock:(failureBlock)failureBlock;
 
-+ (void)checkConnectivity:(successBlock)successBlock failureBlock:(failureBlock)failureBlock;
 @property (nonatomic, assign) BOOL isOnline;
+
 @end
+

@@ -64,7 +64,6 @@
     // Update user horoscope
     Horoscope *horoscope = [Horoscope sharedInstance];
     [[UserHoroscope sharedInstance] update:horoscope forSign:sign];
-
 }
 
 @end

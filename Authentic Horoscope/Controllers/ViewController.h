@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSString *todayHoroscope;
 @property (strong, nonatomic) NSString *birthdate;
+-(void)loadViewControllers;
 
 @end
 

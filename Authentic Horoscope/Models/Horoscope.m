@@ -72,7 +72,7 @@
 }
 
 - (NSDictionary *)getOfflinePrediction {
-    NSDictionary *offlinePrediction = @{@"value": @"Someone broke the internet :(",
+    NSDictionary *offlinePrediction = @{@"value": @"Someone broke the internet",
                                         @"highlightedWord": @"broke"};
     return offlinePrediction;
 }
