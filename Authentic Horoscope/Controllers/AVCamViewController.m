@@ -403,15 +403,29 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
         if (granted)
         {
-            //Granted access to mediaType
-            [self setDeviceAuthorized:YES];
+            ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+            if (status != ALAuthorizationStatusAuthorized) {
+                //Not granted access to photo album
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[[UIAlertView alloc] initWithTitle:@"Can't access your photo album yo!"
+                                                message:@"We don't have permission to use your photo album, please change in privacy settings."
+                                               delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil] show];
+                    [self setDeviceAuthorized:NO];
+                });
+            }
+            else {
+                //Granted access to mediaType and photo album
+                [self setDeviceAuthorized:YES];
+            }
         }
         else
         {
             //Not granted access to mediaType
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[[UIAlertView alloc] initWithTitle:@"AVCam!"
-                                            message:@"AVCam doesn't have permission to use Camera, please change privacy settings"
+                [[[UIAlertView alloc] initWithTitle:@"Can't access your camera yo!"
+                                            message:@"We don't have permission to use your camera, please change in privacy settings."
                                            delegate:self
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil] show];
