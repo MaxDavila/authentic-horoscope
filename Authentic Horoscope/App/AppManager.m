@@ -45,6 +45,24 @@
     [reach startNotifier];
 }
 
++ (NSMutableAttributedString *)buildLabelAttributedTextWithText:(NSString *)text color:(UIColor *)color size:(CGSize)size {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    float fontSize = 120.0f;
+    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
+    
+    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
+    
+    NSDictionary *attributes = @{NSForegroundColorAttributeName: color,
+                                 NSParagraphStyleAttributeName: paragraphStyle,
+                                 NSFontAttributeName: font};
+    
+    float scaleFactor = .99f;
+    return [self buildAttributedStringfromText:text
+                                      withAttributes:attributes
+                                         toFitInSize:size
+                                         scaleFactor:scaleFactor];
+}
+
 + (NSMutableAttributedString *)buildAttributedStringfromText:(NSString *)text
                                        withAttributes:(NSDictionary *)attributes
                                           toFitInSize:(CGSize)desiredBoundingSize

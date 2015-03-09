@@ -18,9 +18,7 @@
 @end
 
 @implementation LandingViewController  {
-    NSString *labelSnippetText;
     NSString *labelFulltText;
-    UIColor *textColor;
     NSMutableAttributedString *attrString;
     SnippetHoroscopeView *snippetView;
     FullHoroscopeView *fullHoroscopeView;
@@ -84,47 +82,30 @@
 # pragma mark - helper methods
 
 - (void)refreshViewContents {
-    labelSnippetText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
+    NSString *snippetText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
+    UIColor *snippetTextColor = [UIColor colorWithRed:0.260 green:0.260 blue:0.260 alpha:1.000];
+    CGSize size = CGSizeMake(self.view.bounds.size.width * .90f, self.view.bounds.size.height * .50f);
+    attrString = [AppManager buildLabelAttributedTextWithText:snippetText color:snippetTextColor size:size];
+
     labelFulltText = userHoroscope.fullHoroscope;
-    textColor = [UIColor colorWithRed:0.260 green:0.260 blue:0.260 alpha:1.000];
+    fullHoroscopeView.titleLabel.text = [userHoroscope.sign uppercaseString];
     
+    // Highlight word
+    NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
+    [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];
+    
+    // Set sign images
     UIImage *blackSign = [UIImage imageNamed:[userHoroscope.sign stringByAppendingString:@"_icon_black_only"]];
     snippetView.signImage.image = blackSign;
     UIImage *whiteSign = [UIImage imageNamed:[userHoroscope.sign stringByAppendingString:@"_icon_white_only"]];
     fullHoroscopeView.signImage.image = whiteSign;
-    fullHoroscopeView.titleLabel.text = [userHoroscope.sign uppercaseString];
-    
-    attrString = [self buildLabelString];
-    
-    // Highlight word
-    NSRange range = [[userHoroscope.snippetHoroscope objectForKey:@"value"] rangeOfString:[userHoroscope.snippetHoroscope objectForKey:@"highlightedWord"] options:NSCaseInsensitiveSearch];
-    [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000] range:range];}
-
-
-- (NSMutableAttributedString *)buildLabelString {
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    float fontSize = 120.0f;
-    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
-    
-    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
-    
-    NSDictionary *attributes = @{NSForegroundColorAttributeName: textColor,
-                                 NSParagraphStyleAttributeName: paragraphStyle,
-                                 NSFontAttributeName: font};
-    CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - (self.view.bounds.size.height / 2)));
-
-    float scaleFactor = .99f;
-    return [AppManager buildAttributedStringfromText:labelSnippetText
-                                      withAttributes:attributes
-                                         toFitInSize:boundingViewSize
-                                         scaleFactor:scaleFactor];
 }
 
 - (void)firstTimeSetup {
-    labelSnippetText = userHoroscope.setSignPrompt;
     labelFulltText = @"";
-    textColor = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
-    attrString = [self buildLabelString];
+    UIColor *color = [UIColor colorWithRed:0.161 green:0.733 blue:0.612 alpha:1.000];
+    CGSize size = CGSizeMake(self.view.bounds.size.width * .90f, self.view.bounds.size.height * .50f);
+    attrString = [AppManager buildLabelAttributedTextWithText:userHoroscope.setSignPrompt color:color size:size];
 }
 
 # pragma mark - gesture handlers

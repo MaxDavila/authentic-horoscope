@@ -16,10 +16,7 @@ typedef void (^failureBlock)();
 
 +(AppManager *)sharedManager;
 +(UIImage *)drawText:(NSString *)text inImage:(UIImage *)image withColor:(UIColor *)color;
-+(NSMutableAttributedString *)buildAttributedStringfromText:(NSString *)text
-                                      withAttributes:(NSDictionary *)attributes
-                                         toFitInSize:(CGSize)boundingViewSize
-                                         scaleFactor:(float)scaleFactor;
++ (NSMutableAttributedString *)buildLabelAttributedTextWithText:(NSString *)text color:(UIColor *)color size:(CGSize)size;
 +(NSString *)getFormattedDate;
 +(void)checkConnectivity:(successBlock)successBlock failureBlock:(failureBlock)failureBlock;
 

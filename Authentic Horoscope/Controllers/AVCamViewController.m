@@ -78,32 +78,17 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     
     // Draw the text label on the videoplayer view
     userHoroscope = [UserHoroscope sharedInstance];
-
+    
+    
+    // setup the label
     if (userHoroscope.snippetHoroscope) {
         labelText = [userHoroscope.snippetHoroscope objectForKey:@"value"];
     }
     else {
         labelText = userHoroscope.setSignPrompt;
     }
-    
-    UIColor *textColor = [UIColor whiteColor];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    float fontSize = 120.0f;
-    
-    UIFont *font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:fontSize];
-    paragraphStyle.maximumLineHeight = fontSize + fontSize * .10f;
-    
-    NSDictionary *attributes = @{NSForegroundColorAttributeName: textColor,
-                                 NSParagraphStyleAttributeName: paragraphStyle,
-                                 NSFontAttributeName: font};
-
-    CGSize boundingViewSize = CGSizeMake(self.view.bounds.size.width * .90f, (self.view.bounds.size.height - self.view.bounds.size.height / 2));
-    float scaleFactor = .99f;
-    NSMutableAttributedString *attrString = [AppManager buildAttributedStringfromText:labelText
-                                                          withAttributes:attributes
-                                                             toFitInSize:boundingViewSize
-                                                             scaleFactor:scaleFactor];
-    self.predictionLabel.attributedText = attrString;
+    CGSize size = CGSizeMake(self.view.bounds.size.width * .90f, self.view.bounds.size.height *.50f);
+    self.predictionLabel.attributedText = [AppManager buildLabelAttributedTextWithText:labelText color:[UIColor whiteColor] size:size];
 
     // In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
     // Why not do all of this on the main queue?
