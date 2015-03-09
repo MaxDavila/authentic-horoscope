@@ -146,6 +146,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="whl-6f-8l5" secondAttribute="trailing" constant="20" symbolic="YES" id="2S9-Vr-15O"/>
                                     <constraint firstItem="hNa-qg-XWr" firstAttribute="leading" secondItem="ELb-fw-w0J" secondAttribute="leading" constant="20" symbolic="YES" id="Dpz-nW-PYl"/>
@@ -185,6 +186,9 @@
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="-16" y="180" width="297" height="600"/>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ttD-se-TKR" appends="YES" id="8GG-ya-MYS"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,6 +208,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONz-0l-FYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ttD-se-TKR">
+                    <connections>
+                        <action selector="focusAndExposeTap:" destination="lvv-Sa-QNh" id="bj6-G9-QQC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="938" y="583"/>
         </scene>

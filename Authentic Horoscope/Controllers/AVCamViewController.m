@@ -15,19 +15,16 @@
 #import "AppManager.h"
 
 static void * CapturingStillImageContext = &CapturingStillImageContext;
-static void * RecordingContext = &RecordingContext;
 static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
 @interface AVCamViewController () <AVCaptureFileOutputRecordingDelegate>
 
 // For use in the storyboards.
 @property (nonatomic, weak) IBOutlet AVCamPreviewView *previewView;
-@property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton *stillButton;
 @property (nonatomic, weak) IBOutlet UIButton *changeColor;
 
-//- (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)changeCamera:(id)sender;
 - (IBAction)snapStillImage:(id)sender;
 - (IBAction)changeColor:(id)sender;
@@ -54,8 +51,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     UserHoroscope *userHoroscope;
     NSString *labelText;
 }
-
-//@synthesize scanningLabel;
 
 - (BOOL)isSessionRunningAndDeviceAuthorized
 {
@@ -186,7 +181,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     dispatch_async([self sessionQueue], ^{
         [self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
         [self addObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:CapturingStillImageContext];
-        [self addObserver:self forKeyPath:@"movieFileOutput.recording" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:RecordingContext];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:[[self videoDeviceInput] device]];
         
         __weak AVCamViewController *weakSelf = self;
@@ -195,7 +189,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             dispatch_async([strongSelf sessionQueue], ^{
                 // Manually restarting the session since it must have been stopped due to an error.
                 [[strongSelf session] startRunning];
-                [[strongSelf recordButton] setTitle:NSLocalizedString(@"Record", @"Recording button record title") forState:UIControlStateNormal];
             });
         }]];
         [[self session] startRunning];
@@ -212,7 +205,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
         
         [self removeObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" context:SessionRunningAndDeviceAuthorizedContext];
         [self removeObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" context:CapturingStillImageContext];
-        [self removeObserver:self forKeyPath:@"movieFileOutput.recording" context:RecordingContext];
     });
 }
 
@@ -232,11 +224,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     return UIInterfaceOrientationMaskAll;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)toInterfaceOrientation];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (context == CapturingStillImageContext)
@@ -248,25 +235,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             [self runStillImageCaptureAnimation];
         }
     }
-    else if (context == RecordingContext)
-    {
-        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (isRecording)
-            {
-                [[self cameraButton] setEnabled:NO];
-                [[self recordButton] setTitle:NSLocalizedString(@"Stop", @"Recording button stop title") forState:UIControlStateNormal];
-                [[self recordButton] setEnabled:YES];
-            }
-            else
-            {
-                [[self cameraButton] setEnabled:YES];
-                [[self recordButton] setTitle:NSLocalizedString(@"Record", @"Recording button record title") forState:UIControlStateNormal];
-                [[self recordButton] setEnabled:YES];
-            }
-        });
-    }
     else if (context == SessionRunningAndDeviceAuthorizedContext)
     {
         BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
@@ -275,13 +243,11 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             if (isRunning)
             {
                 [[self cameraButton] setEnabled:YES];
-                [[self recordButton] setEnabled:YES];
                 [[self stillButton] setEnabled:YES];
             }
             else
             {
                 [[self cameraButton] setEnabled:NO];
-                [[self recordButton] setEnabled:NO];
                 [[self stillButton] setEnabled:NO];
             }
         });
@@ -294,42 +260,10 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 
 #pragma mark Actions
 
-//- (IBAction)toggleMovieRecording:(id)sender
-//{
-//    [[self recordButton] setEnabled:NO];
-//    
-//    dispatch_async([self sessionQueue], ^{
-//        if (![[self movieFileOutput] isRecording])
-//        {
-//            [self setLockInterfaceRotation:YES];
-//            
-//            if ([[UIDevice currentDevice] isMultitaskingSupported])
-//            {
-//                // Setup background task. This is needed because the captureOutput:didFinishRecordingToOutputFileAtURL: callback is not received until AVCam returns to the foreground unless you request background execution time. This also ensures that there will be time to write the file to the assets library when AVCam is backgrounded. To conclude this background execution, -endBackgroundTask is called in -recorder:recordingDidFinishToOutputFileURL:error: after the recorded file has been saved.
-//                [self setBackgroundRecordingID:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
-//            }
-//            
-//            // Update the orientation on the movie file output video connection before starting recording.
-//            [[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
-//            
-//            // Turning OFF flash for video recording
-//            [AVCamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
-//            
-//            // Start recording to a temporary file.
-//            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
-//            [[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
-//        }
-//        else
-//        {
-//            [[self movieFileOutput] stopRecording];
-//        }
-//    });
-//}
 
 - (IBAction)changeCamera:(id)sender
 {
     [[self cameraButton] setEnabled:NO];
-    [[self recordButton] setEnabled:NO];
     [[self stillButton] setEnabled:NO];
     
     dispatch_async([self sessionQueue], ^{
@@ -375,7 +309,6 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[self cameraButton] setEnabled:YES];
-            [[self recordButton] setEnabled:YES];
             [[self stillButton] setEnabled:YES];
         });
     });
@@ -388,7 +321,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
         [[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
         
         // Flash set to Auto for Still Capture
-        [AVCamViewController setFlashMode:AVCaptureFlashModeAuto forDevice:[[self videoDeviceInput] device]];
+        [AVCamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
         
         // Capture a still image.
         [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
@@ -433,28 +366,28 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 }
 
 #pragma mark File Output Delegate
-
-- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
-{
-    if (error)
-        NSLog(@"%@", error);
-    
-    [self setLockInterfaceRotation:NO];
-    
-    // Note the backgroundRecordingID for use in the ALAssetsLibrary completion handler to end the background task associated with this recording. This allows a new recording to be started, associated with a new UIBackgroundTaskIdentifier, once the movie file output's -isRecording is back to NO — which happens sometime after this method returns.
-    UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingID];
-    [self setBackgroundRecordingID:UIBackgroundTaskInvalid];
-    
-    [[[ALAssetsLibrary alloc] init] writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
-        if (error)
-            NSLog(@"%@", error);
-        
-        [[NSFileManager defaultManager] removeItemAtURL:outputFileURL error:nil];
-        
-        if (backgroundRecordingID != UIBackgroundTaskInvalid)
-            [[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
-    }];
-}
+//
+//- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
+//{
+//    if (error)
+//        NSLog(@"%@", error);
+//    
+//    [self setLockInterfaceRotation:NO];
+//    
+//    // Note the backgroundRecordingID for use in the ALAssetsLibrary completion handler to end the background task associated with this recording. This allows a new recording to be started, associated with a new UIBackgroundTaskIdentifier, once the movie file output's -isRecording is back to NO — which happens sometime after this method returns.
+//    UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingID];
+//    [self setBackgroundRecordingID:UIBackgroundTaskInvalid];
+//    
+//    [[[ALAssetsLibrary alloc] init] writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
+//        if (error)
+//            NSLog(@"%@", error);
+//        
+//        [[NSFileManager defaultManager] removeItemAtURL:outputFileURL error:nil];
+//        
+//        if (backgroundRecordingID != UIBackgroundTaskInvalid)
+//            [[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
+//    }];
+//}
 
 #pragma mark Device Configuration
 
@@ -525,7 +458,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[[self previewView] layer] setOpacity:0.0];
-        [UIView animateWithDuration:.25 animations:^{
+        [UIView animateWithDuration:.50 animations:^{
             [[[self previewView] layer] setOpacity:1.0];
         }];
     });
@@ -534,7 +467,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
 - (void)checkDeviceAuthorizationStatus
 {
     NSString *mediaType = AVMediaTypeVideo;
-    
+
     [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
         if (granted)
         {
