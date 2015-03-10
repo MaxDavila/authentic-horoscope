@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AVCamViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *predictionLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *predictionLabel;
 
 @end

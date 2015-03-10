@@ -152,9 +152,26 @@
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     NSString *identifier = myViewControllers[index];
-    UIViewController *viewController = [self.storyboard
+    if ([identifier isEqualToString:@"SignsViewController"]) {
+        SignsViewController *signsViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        signsViewController.delegate = self;
+        return signsViewController;
+    }
+    else {
+        UIViewController *viewController = [self.storyboard
                                             instantiateViewControllerWithIdentifier:identifier];
-    return viewController;
+        
+        return viewController;
+    }
+}
 
+#pragma mark - SignsViewController Delegate method
+
+- (void)goToPageAtIndex:(NSUInteger)index {
+    [self.pageViewController setViewControllers:@[[self viewControllerAtIndex:index]]
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    
 }
 @end

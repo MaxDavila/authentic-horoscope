@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SignsViewControllerDelegate;
+
+
 @interface SignsViewController : UIViewController
+
+@property (nonatomic, weak) id<SignsViewControllerDelegate> delegate;
+
+@end
+
+
+@protocol SignsViewControllerDelegate <NSObject>
+
+- (void)goToPageAtIndex:(NSUInteger)index;
 
 @end

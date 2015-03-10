@@ -64,6 +64,16 @@
     // Update user horoscope
     Horoscope *horoscope = [Horoscope sharedInstance];
     [[UserHoroscope sharedInstance] update:horoscope forSign:sign];
+    
+    [self goToMainView];
+}
+
+- (void)goToMainView {
+    // Call Viewcontroller delegate method to go back to LandingViewController
+    id<SignsViewControllerDelegate> strongDelegate = self.delegate;
+    if ([strongDelegate respondsToSelector:@selector(goToPageAtIndex:)]) {
+        [strongDelegate goToPageAtIndex:1];
+    }
 }
 
 @end

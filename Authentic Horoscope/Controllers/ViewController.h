@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Horoscope.h"
 #import "HoroscopeApi.h"
+#import "SignsViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <SignsViewControllerDelegate>
 
 @property (strong, nonatomic) NSString *todayHoroscope;
 @property (strong, nonatomic) NSString *birthdate;
--(void)loadViewControllers;
 
 @end
 
