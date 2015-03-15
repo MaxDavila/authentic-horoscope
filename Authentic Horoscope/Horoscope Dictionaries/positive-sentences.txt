@@ -34,6 +34,26 @@ Beer me, bro!
 bro!
 Don’t play the lottery today.
 lottery
+Your suspicions may prove correct today.
+correct
+Things are about to get adventurous.
+adventurous.
+Fuck it, just go rogue!
+rogue!
+Trust me, the stars will protect you.
+protect
+A small person will see you walking by today and wish they were as tall as you.
+walking by
+Everyone agrees you are the best.
+best.
+Every exit is an entrance to new experiences.
+entrance
+A thrilling time is in your immediate future.
+thrilling
+Flattery will go far tonight.
+Flattery
+Be cuddly today and possibly as fluffy as possible.
+possible.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  Neutral Phrases

@@ -76,10 +76,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
     // Let the video player occupy 100% of the screen
     ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
     
-    // Draw the text label on the videoplayer view
     userHoroscope = [UserHoroscope sharedInstance];
-    
-    
     // setup the label
     if (userHoroscope.snippetHoroscope) {
         labelText = [userHoroscope.snippetHoroscope objectForKey:@"value"];

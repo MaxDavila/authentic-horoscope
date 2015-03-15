@@ -24,7 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _setSignPrompt = @"Swipe right to set your sign son!";
+        _setSignPrompt = @"Swipe right to set your sign!";
         _changed = NO;
     }
     return self;
